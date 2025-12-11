@@ -1,0 +1,919 @@
+
+*** Running vivado
+    with args -log top_level.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
+
+
+****** Vivado v2018.3.1 (64-bit)
+  **** SW Build 2489853 on Tue Mar 26 04:20:25 MDT 2019
+  **** IP Build 2486929 on Tue Mar 26 06:44:21 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source top_level.tcl -notrace
+Command: synth_design -top top_level -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 4652 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 362.141 ; gain = 101.031
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'top_level' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_level.vhd:61]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter LINE_LENGTH bound to: 256 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'rgb_to_ycbcr_converter' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:49]
+WARNING: [Synth 8-6014] Unused sequential element r_integer_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:71]
+WARNING: [Synth 8-6014] Unused sequential element g_integer_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:72]
+WARNING: [Synth 8-6014] Unused sequential element b_integer_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:73]
+WARNING: [Synth 8-6014] Unused sequential element y_integer_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:75]
+WARNING: [Synth 8-6014] Unused sequential element cb_integer_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:76]
+WARNING: [Synth 8-6014] Unused sequential element cr_integer_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:77]
+INFO: [Synth 8-256] done synthesizing module 'rgb_to_ycbcr_converter' (1#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:49]
+INFO: [Synth 8-638] synthesizing module 'memory_controller' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/memory_controller.vhd:53]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter LINE_LENGTH bound to: 256 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'simple_dual_ram' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/simple_dual_ram.vhd:51]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'simple_dual_ram' (2#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/simple_dual_ram.vhd:51]
+INFO: [Synth 8-226] default block is never used [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/memory_controller.vhd:96]
+INFO: [Synth 8-256] done synthesizing module 'memory_controller' (3#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/memory_controller.vhd:53]
+INFO: [Synth 8-638] synthesizing module 'dct_transform_streaming' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform_streaming.vhd:50]
+INFO: [Synth 8-638] synthesizing module 'dct_transform' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:46]
+WARNING: [Synth 8-3848] Net j_reg in module/entity dct_transform does not have driver. [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:51]
+WARNING: [Synth 8-3848] Net i_reg in module/entity dct_transform does not have driver. [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:51]
+INFO: [Synth 8-256] done synthesizing module 'dct_transform' (4#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:46]
+WARNING: [Synth 8-6014] Unused sequential element pixel_count_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform_streaming.vhd:72]
+INFO: [Synth 8-256] done synthesizing module 'dct_transform_streaming' (5#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform_streaming.vhd:50]
+WARNING: [Synth 8-3848] Net block_done in module/entity top_level does not have driver. [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_level.vhd:57]
+INFO: [Synth 8-256] done synthesizing module 'top_level' (6#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_level.vhd:61]
+WARNING: [Synth 8-3331] design top_level has unconnected port block_done
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 425.484 ; gain = 164.375
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 425.484 ; gain = 164.375
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 425.484 ; gain = 164.375
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'memory_controller'
+INFO: [Synth 8-5544] ROM "line_addr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "block_row" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-4471] merging register 'dct_out_reg[0,2][15:0]' into 'dct_out_reg[0,1][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[0,3][15:0]' into 'dct_out_reg[0,1][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[0,4][15:0]' into 'dct_out_reg[0,1][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[0,5][15:0]' into 'dct_out_reg[0,1][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[0,6][15:0]' into 'dct_out_reg[0,1][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[0,7][15:0]' into 'dct_out_reg[0,1][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[1,2][15:0]' into 'dct_out_reg[1,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[1,3][15:0]' into 'dct_out_reg[1,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[1,4][15:0]' into 'dct_out_reg[1,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[1,5][15:0]' into 'dct_out_reg[1,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[1,6][15:0]' into 'dct_out_reg[1,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[1,7][15:0]' into 'dct_out_reg[1,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[2,1][15:0]' into 'dct_out_reg[2,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[2,3][15:0]' into 'dct_out_reg[2,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[2,4][15:0]' into 'dct_out_reg[2,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[2,5][15:0]' into 'dct_out_reg[2,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[2,6][15:0]' into 'dct_out_reg[2,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[2,7][15:0]' into 'dct_out_reg[2,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[3,1][15:0]' into 'dct_out_reg[3,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[3,2][15:0]' into 'dct_out_reg[3,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[3,4][15:0]' into 'dct_out_reg[3,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[3,5][15:0]' into 'dct_out_reg[3,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[3,6][15:0]' into 'dct_out_reg[3,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[3,7][15:0]' into 'dct_out_reg[3,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[4,1][15:0]' into 'dct_out_reg[4,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[4,2][15:0]' into 'dct_out_reg[4,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[4,3][15:0]' into 'dct_out_reg[4,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[4,5][15:0]' into 'dct_out_reg[4,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[4,6][15:0]' into 'dct_out_reg[4,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[4,7][15:0]' into 'dct_out_reg[4,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[5,1][15:0]' into 'dct_out_reg[5,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[5,2][15:0]' into 'dct_out_reg[5,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[5,3][15:0]' into 'dct_out_reg[5,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[5,4][15:0]' into 'dct_out_reg[5,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[5,6][15:0]' into 'dct_out_reg[5,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[5,7][15:0]' into 'dct_out_reg[5,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[6,1][15:0]' into 'dct_out_reg[6,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[6,2][15:0]' into 'dct_out_reg[6,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[6,3][15:0]' into 'dct_out_reg[6,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[6,4][15:0]' into 'dct_out_reg[6,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[6,5][15:0]' into 'dct_out_reg[6,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[6,7][15:0]' into 'dct_out_reg[6,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[7,1][15:0]' into 'dct_out_reg[7,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[7,2][15:0]' into 'dct_out_reg[7,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[7,3][15:0]' into 'dct_out_reg[7,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[7,4][15:0]' into 'dct_out_reg[7,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[7,5][15:0]' into 'dct_out_reg[7,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[7,6][15:0]' into 'dct_out_reg[7,0][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[1,0][15:0]' into 'dct_out_reg[0,1][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[2,0][15:0]' into 'dct_out_reg[0,1][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[3,0][15:0]' into 'dct_out_reg[0,1][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[4,0][15:0]' into 'dct_out_reg[0,1][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[5,0][15:0]' into 'dct_out_reg[0,1][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[6,0][15:0]' into 'dct_out_reg[0,1][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-4471] merging register 'dct_out_reg[7,0][15:0]' into 'dct_out_reg[0,1][15:0]' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:141]
+INFO: [Synth 8-5544] ROM "dct_out_reg[0,0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_out_reg[1,1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_out_reg[2,2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_out_reg[3,3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_out_reg[4,4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_out_reg[5,5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_out_reg[6,6]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_out_reg[7,7]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "norm" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "norm" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:97]
+INFO: [Synth 8-5544] ROM "row_idx" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,6]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_start" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "block_done" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                reset_st |                               10 |                               00
+              wait_frame |                               11 |                               01
+             wait_pixels |                               01 |                               10
+                   write |                               00 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'memory_controller'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 468.449 ; gain = 207.340
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 6     
+	   3 Input     31 Bit       Adders := 1     
+	   2 Input     31 Bit       Adders := 5     
+	   2 Input     16 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 7     
++---Registers : 
+	               32 Bit    Registers := 3     
+	               16 Bit    Registers := 10    
+	               10 Bit    Registers := 64    
+	                8 Bit    Registers := 13    
+	                6 Bit    Registers := 1     
+	                3 Bit    Registers := 6     
+	                1 Bit    Registers := 4     
++---Multipliers : 
+	                16x32  Multipliers := 2     
++---RAMs : 
+	               2K Bit         RAMs := 8     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input     31 Bit        Muxes := 5     
+	   2 Input     16 Bit        Muxes := 2     
+	   8 Input     16 Bit        Muxes := 16    
+	   2 Input     15 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 8     
+	   2 Input      6 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 5     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 87    
+	   4 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module rgb_to_ycbcr_converter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 5     
+	   3 Input     31 Bit       Adders := 1     
+	   2 Input     31 Bit       Adders := 2     
++---Registers : 
+	                8 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input     31 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 8     
+	   2 Input      1 Bit        Muxes := 1     
+Module simple_dual_ram 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---RAMs : 
+	               2K Bit         RAMs := 1     
+Module memory_controller 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 2     
++---Registers : 
+	                8 Bit    Registers := 2     
+	                3 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      3 Bit        Muxes := 2     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+	   4 Input      1 Bit        Muxes := 1     
+Module dct_transform 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     31 Bit       Adders := 3     
+	   2 Input     16 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 3     
++---Registers : 
+	               32 Bit    Registers := 3     
+	               16 Bit    Registers := 9     
++---Multipliers : 
+	                16x32  Multipliers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     31 Bit        Muxes := 3     
+	   2 Input     16 Bit        Muxes := 2     
+	   8 Input     16 Bit        Muxes := 16    
+	   2 Input     15 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 10    
+Module dct_transform_streaming 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 2     
++---Registers : 
+	               16 Bit    Registers := 1     
+	               10 Bit    Registers := 64    
+	                6 Bit    Registers := 1     
+	                3 Bit    Registers := 4     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 73    
+	   3 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5544] ROM "block_row" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "line_addr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "block_row" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "line_addr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "norm" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "norm" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:130]
+DSP Report: Generating DSP acc10, operation Mode is: A*B.
+DSP Report: operator acc10 is absorbed into DSP acc10.
+DSP Report: operator acc10 is absorbed into DSP acc10.
+DSP Report: Generating DSP acc20, operation Mode is: A2*B.
+DSP Report: register A is absorbed into DSP acc20.
+DSP Report: operator acc20 is absorbed into DSP acc20.
+DSP Report: operator acc20 is absorbed into DSP acc20.
+DSP Report: Generating DSP acc1_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register acc1_reg is absorbed into DSP acc1_reg.
+DSP Report: operator acc10 is absorbed into DSP acc1_reg.
+DSP Report: operator acc10 is absorbed into DSP acc1_reg.
+DSP Report: Generating DSP acc2_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register acc2_reg is absorbed into DSP acc2_reg.
+DSP Report: operator acc20 is absorbed into DSP acc2_reg.
+DSP Report: operator acc20 is absorbed into DSP acc2_reg.
+DSP Report: Generating DSP acc5, operation Mode is: A*B.
+DSP Report: operator acc5 is absorbed into DSP acc5.
+DSP Report: Generating DSP acc4, operation Mode is: A*B.
+DSP Report: operator acc4 is absorbed into DSP acc4.
+DSP Report: operator acc4 is absorbed into DSP acc4.
+DSP Report: Generating DSP acc4, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator acc4 is absorbed into DSP acc4.
+DSP Report: operator acc4 is absorbed into DSP acc4.
+INFO: [Synth 8-5546] ROM "block_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "row_idx" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,6]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+WARNING: [Synth 8-3331] design top_level has unconnected port block_done
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[0].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[1].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[2].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[3].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[4].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[5].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[6].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[7].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,7][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,7][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,7][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,7][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,7][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,7][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,7][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,7][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,6][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,6][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,6][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,6][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,6][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,6][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,6][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,6][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,5][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,5][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,5][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,5][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,5][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,5][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,5][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,5][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,4][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,4][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,4][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,4][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,4][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,4][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,4][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,4][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,3][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,3][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,3][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,3][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,3][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,3][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,3][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,3][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,2][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,2][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,2][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,2][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,2][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,2][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,2][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,2][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,1][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,1][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,1][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,1][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,1][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,1][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,1][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,1][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,0][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,0][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,0][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,0][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,0][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,0][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,0][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,0][9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[0]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[1]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[1]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[2]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[3]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[4]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[4]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[5]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[6]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[6]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[7]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[8]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[8]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[9]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[9]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[10]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[10]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[11]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[11]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[12]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[12]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[13]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[13]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[14]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[14]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[15]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[15]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[16]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[16]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[17]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[17]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[18]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[18]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[19]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[19]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[20]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[20]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[21]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[21]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[22]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[22]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[23]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[23]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[24]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[24]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[25]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[25]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[26]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[26]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[27]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[27]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[28]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[28]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[29]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/acc_final_reg[29]' (FDRE) to 'U_DCT/U_DCT/acc_final_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc_final_reg[31] )
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[7,7][0]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[6,6][0]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[6,6][0]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[4,4][0]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[5,5][0]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[4,4][0]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[4,4][0]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[2,2][0]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[3,3][0]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[2,2][0]'
+INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[2,2][0]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[0,1][0]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc_final_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\output_u_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[15] )
+WARNING: [Synth 8-3332] Sequential element (U_MEM/FSM_sequential_state_reg[1]) is unused and will be removed from module top_level.
+WARNING: [Synth 8-3332] Sequential element (U_MEM/FSM_sequential_state_reg[0]) is unused and will be removed from module top_level.
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/done_reg__0/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:76]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:76]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:76]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/stage_reg[2]__1/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:82]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:82]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:82]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/stage_reg[1]__1/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:82]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:82]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:82]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/stage_reg[0]__1/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:82]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:82]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:82]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/j_reg[2]__0/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/j_reg[1]__0/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/j_reg[0]__0/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:78]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:78]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/i_reg[2]__0/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:77]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/i_reg[1]__0/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:77]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/i_reg[0]__0/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:77]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[31]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[30]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[29]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[28]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[27]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[26]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[25]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[24]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[23]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[22]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[21]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[20]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[19]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[18]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[17]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[16]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[15]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[14]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[13]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[12]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[11]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[10]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[9]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[8]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[7]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[6]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[5]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[4]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[3]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[2]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[1]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/acc_reg[0]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:120]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/x_reg[2]__0/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/x_reg[1]__0/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/x_reg[0]__0/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:79]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:79]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/y_reg[2]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:145]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:145]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:145]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/y_reg[1]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:145]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:145]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:145]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/y_reg[0]/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:145]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:145]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:145]
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[47]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[46]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[45]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[44]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[43]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[42]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[41]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[40]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[39]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[38]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[37]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[36]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[35]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[34]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[33]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[32]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[31]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[30]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[29]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[28]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[27]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[26]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[25]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[24]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[23]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[22]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[21]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[20]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[19]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[18]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[17]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[16]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[15]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[14]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[13]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[12]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[11]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[10]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[9]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[8]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[7]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[6]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[5]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[4]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[3]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[2]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[1]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc2_reg[0]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[47]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[46]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[45]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[44]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[43]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[42]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[41]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[40]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[39]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[38]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[37]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[36]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[35]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[34]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[33]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[32]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[31]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[30]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[29]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[28]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[27]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[26]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[25]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[24]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[23]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[22]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[21]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[20]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[19]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[18]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[17]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[16]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[15]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[14]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[13]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[12]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[11]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[10]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[9]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[8]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[7]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[6]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[5]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[4]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[3]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[2]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[1]) is unused and will be removed from module dct_transform.
+WARNING: [Synth 8-3332] Sequential element (acc1_reg[0]) is unused and will be removed from module dct_transform.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 576.168 ; gain = 315.059
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping  Report (see note below)
++--------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name   | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|dct_transform | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|dct_transform | A2*B           | 18     | 16     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|dct_transform | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|dct_transform | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|dct_transform | A*B            | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|dct_transform | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|dct_transform | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++--------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 576.168 ; gain = 315.059
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |OBUF  |    23|
+|2     |OBUFT |     1|
++------+------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |    24|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 144 critical warnings and 110 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+Synthesis Optimization Complete : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 683.156 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+294 Infos, 110 Warnings, 144 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 683.156 ; gain = 435.172
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 683.156 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_image_compression.runs/synth_1/top_level.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_level_utilization_synth.rpt -pb top_level_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 30 16:07:56 2025...

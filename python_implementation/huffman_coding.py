@@ -38,3 +38,66 @@ def value_bits(value, size):
     
     mask = (1 << size) - 1
     return format(value & mask, f"0{size}b")
+
+def encode_block(coeffs, last_dc): 
+    """coeffs: kist 64 quantized value (zigzag ordered)
+    last_dc: previous DC coefficient
+    
+    Returns bitstring and new last_dc
+    """
+    
+    bits = ""
+    
+    dc = coeffs[0]
+    diff = dc - last_dc
+    cat = category(diff)
+    huff_code, _ = DC_LUMA_HUFF[cat]
+    bits += huff_code
+    bits += value_bits(diff, cat)
+    
+    zero_run = 0
+    
+    for ac in coeffs[1:]:
+        if ac == 0:
+            zero_run += 1
+            
+            if zero_run == 16:
+                huff, _ = AC_LUMA_HUFF[(15, 0)]
+                bits += huff
+                zero_run = 0
+        
+        else:
+            size = category(ac)
+            key = (zero_run, size)
+            
+            if key not in AC_LUMA_HUFF:
+                raise ValueError(f"Huffman code for {key} not found.")
+            
+            huff, _ = AC_LUMA_HUFF[key]
+            bits += huff
+            
+            bits += value_bits(ac, size)
+            zero_run = 0
+            
+    if zero_run > 0:
+        huff, _ = AC_LUMA_HUFF[(0, 0)]
+        bits += huff
+    return bits, dc
+
+if __name__ == "__main__":
+    test_block = [
+        52, -3, 0, 0, 0, 0, 0, 0,
+        2, -1, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0
+    ]
+    
+    stream, new_dc = encode_block(test_block, last_dc=50)
+    
+    print("Huffman Encoded Bitstream:")
+    print(stream)
+    print("Final DC:", new_dc)

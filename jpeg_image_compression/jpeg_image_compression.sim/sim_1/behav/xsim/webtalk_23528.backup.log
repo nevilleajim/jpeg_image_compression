@@ -2,11 +2,12 @@
 # Webtalk v2018.3.1 (64-bit)
 # SW Build 2489853 on Tue Mar 26 04:20:25 MDT 2019
 # IP Build 2486929 on Tue Mar 26 06:44:21 MDT 2019
-# Start of session at: Sat Nov 15 11:38:08 2025
-# Process ID: 14372
+# Start of session at: Wed Dec  3 13:57:38 2025
+# Process ID: 23528
 # Current directory: C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_image_compression.sim/sim_1/behav/xsim
 # Command line: wbtcv.exe -mode batch -source C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_image_compression.sim/sim_1/behav/xsim/xsim.dir/conversion_tb_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_image_compression.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_image_compression.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
 source C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_image_compression.sim/sim_1/behav/xsim/xsim.dir/conversion_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Wed Dec  3 13:57:40 2025...

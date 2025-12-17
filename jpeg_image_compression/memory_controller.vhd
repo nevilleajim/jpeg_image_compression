@@ -45,7 +45,7 @@ entity memory_controller is
        p_valid     : in std_logic;
        i_valid     : in std_logic;
        
-       pixel_out   : out std_logic_vector((DATA_WIDTH*8)-1 downto 0);
+       pixel_out   : out std_logic_vector(DATA_WIDTH-1 downto 0);
        pixel_valid : out std_logic
     );
 end memory_controller;

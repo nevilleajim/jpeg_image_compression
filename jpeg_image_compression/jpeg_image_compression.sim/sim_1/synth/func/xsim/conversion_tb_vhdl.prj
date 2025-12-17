@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"conversion_tb_func_synth.vhd" \
+"../../../../../rgb_to_ycbcr_converter.vhd" \
+"../../../../../conversion_tb.vhd" \
+
+# Do not sort compile order
+nosort

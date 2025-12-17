@@ -105,7 +105,8 @@ begin
         )
         port map (
             clk         => clk,
-            reset       => reset,  
+            reset       => reset,
+              
             pixel_in    => Y,
             p_valid     => p_valid,
             i_valid     => i_valid,

@@ -72,5 +72,65 @@ begin
             end if;
         end if;
     end process;
+    
+    ac_process : process(clk)
+        variable i          : integer range 1 to 63;
+        variable run        : integer range 0 to 15;
+        variable coeff      : integer;
+        variable cat        : integer;
+        variable hlen       : integer;
+        variable bit_pos    : integer range 0 to 255;
+    begin
+        if rising_edge(clk) then
+            if reset = '1' then
+                bit_pos     := 255;
+                coeff_valid <= '0';
+                done        <= '0';
+            
+            elsif start = '1' then
+                run     := 0;
+                bit_pos := 255;
+                
+                for i in 1 to 63 loop
+                    coeff := to_integer(block_in(i));
+                    
+                    if coeff = 0 then
+                        run := run + 1;
+                        
+                        if run = 16 then
+                            hlen := AC_LUMA_HUFF(15, 0).length;
+                            stream_out(bit_pos downto bit_pos-hlen+1) <= 
+                                AC_LUMA_HUFF(15,0).code(15 downto 16-hlen);
+                            bit_pos := bit_pos - hlen;
+                            run := 0;
+                        end if;
+                    else
+                        cat := category(coeff);
+                        
+                        hlen := AC_LUMA_HUFF(run, cat).length;
+                        stream_out(bit_pos downto bit_pos-hlen+1) <= 
+                            AC_LUMA_HUFF(run, cat).code(15 downto 16-hlen);
+                        bit_pos := bit_pos - hlen;
+                        
+                        stream_out(bit_pos downto bit_pos-cat+1) <= 
+                            value_bits(coeff, cat);
+                        bit_pos := bit_pos - cat;
+                        
+                        run := 0;
+                    end if;
+                end loop;
+                
+                if run > 0 then
+                    hlen := AC_LUMA_HUFF(0,0).length;
+                    stream_out(bit_pos downto bit_pos-hlen+1) <=
+                        AC_LUMA_HUFF(0,0).code(15 downto 16-hlen);
+                    bit_pos := bit_pos - hlen;
+                end if;
+                
+                coeff_valid <= '1';
+                done        <= '1';
+             end if;
+         end if;
+     end process;                        
 
 end rtl;

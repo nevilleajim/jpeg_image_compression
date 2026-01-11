@@ -90,7 +90,7 @@ begin
                 zigzag_out(zigzag_cnt) <= quant_block(row, col);
                 coeff_valid            <= '1';
                 
-                if zigzag_cnt <= 63 then
+                if zigzag_cnt = 63 then
                     active <= '0';
                     done   <= '1';
                 else 

@@ -36,10 +36,11 @@ entity zigzag_encoding is
   Port (
     clk          : in std_logic;
     reset        : in std_logic;
+    
     start        : in std_logic;
     quant_block  : in block8x8;
     
-    coeff_valid  : out std_logic;
+    zigzag_valid : out std_logic;
     done         : out std_logic;
     zigzag_out   : out block64
    );
@@ -71,16 +72,16 @@ begin
     begin
         if rising_edge(clk) then
              if reset = '1' then
-                zigzag_cnt  <= 0;
-                active      <= '0';
-                done        <= '0';
-                coeff_valid <= '0';
+                zigzag_cnt   <= 0;
+                active       <= '0';
+                done         <= '0';
+                zigzag_valid <= '0';
              
              elsif start = '1' then
-                zigzag_cnt  <= 0;
-                active      <= '1';
-                done        <= '0';
-                coeff_valid <= '0';
+                zigzag_cnt   <= 0;
+                active       <= '1';
+                done         <= '0';
+                zigzag_valid <= '0';
              
              elsif active = '1' then
                 index := ZIGZAG_INDEX(zigzag_cnt);
@@ -88,9 +89,9 @@ begin
                 col   := index mod 8;
                 
                 zigzag_out(zigzag_cnt) <= quant_block(row, col);
-                coeff_valid            <= '1';
+                zigzag_valid           <= '1';
                 
-                if zigzag_cnt <= 63 then
+                if zigzag_cnt = 63 then
                     active <= '0';
                     done   <= '1';
                 else 
@@ -99,8 +100,8 @@ begin
                 end if;
             
              else 
-                coeff_valid <= '0';
-                done        <= '0';   
+                zigzag_valid <= '0';
+                done         <= '0';   
              end if;
         end if;
        wait;

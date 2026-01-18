@@ -17,7 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param synth.incrementalSynthesisCache C:/Users/hp/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-8664-DESKTOP-I7K0TLI/incrSyn
+set_param synth.incrementalSynthesisCache C:/Users/hp/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-6804-DESKTOP-I7K0TLI/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7z020clg484-1
@@ -36,9 +36,13 @@ read_vhdl -library xil_defaultlib {
   C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_image_compression.srcs/sources_1/imports/jpeg_image_compression/cosine_pck.vhd
   C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd
   C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform_streaming.vhd
+  C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_type_pkg.vhd
   C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/simple_dual_ram.vhd
   C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/memory_controller.vhd
+  C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quant_block_buf.vhd
+  C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quantization.vhd
   C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd
+  C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/zigzag_encoding.vhd
   C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_level.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being

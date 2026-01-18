@@ -2,8 +2,8 @@
 # Vivado v2018.3.1 (64-bit)
 # SW Build 2489853 on Tue Mar 26 04:20:25 MDT 2019
 # IP Build 2486929 on Tue Mar 26 06:44:21 MDT 2019
-# Start of session at: Sun Nov 30 16:07:43 2025
-# Process ID: 12928
+# Start of session at: Sun Jan 18 17:31:45 2026
+# Process ID: 1652
 # Current directory: C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_image_compression.runs/synth_1
 # Command line: vivado.exe -log top_level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
 # Log file: C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_image_compression.runs/synth_1/top_level.vds
@@ -15,11 +15,11 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 4652 
+INFO: Helper process launched with PID 6896 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 362.141 ; gain = 101.031
+Starting Synthesize : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 361.895 ; gain = 101.121
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'top_level' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_level.vhd:61]
+INFO: [Synth 8-638] synthesizing module 'top_level' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_level.vhd:70]
 	Parameter DATA_WIDTH bound to: 8 - type: integer 
 	Parameter LINE_LENGTH bound to: 256 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'rgb_to_ycbcr_converter' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:49]
@@ -37,7 +37,7 @@ INFO: [Synth 8-638] synthesizing module 'simple_dual_ram' [C:/Users/hp/Documents
 	Parameter DATA_WIDTH bound to: 8 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'simple_dual_ram' (2#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/simple_dual_ram.vhd:51]
-INFO: [Synth 8-226] default block is never used [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/memory_controller.vhd:96]
+INFO: [Synth 8-226] default block is never used [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/memory_controller.vhd:106]
 INFO: [Synth 8-256] done synthesizing module 'memory_controller' (3#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/memory_controller.vhd:53]
 INFO: [Synth 8-638] synthesizing module 'dct_transform_streaming' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform_streaming.vhd:50]
 INFO: [Synth 8-638] synthesizing module 'dct_transform' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:46]
@@ -46,21 +46,137 @@ WARNING: [Synth 8-3848] Net i_reg in module/entity dct_transform does not have d
 INFO: [Synth 8-256] done synthesizing module 'dct_transform' (4#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:46]
 WARNING: [Synth 8-6014] Unused sequential element pixel_count_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform_streaming.vhd:72]
 INFO: [Synth 8-256] done synthesizing module 'dct_transform_streaming' (5#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform_streaming.vhd:50]
-WARNING: [Synth 8-3848] Net block_done in module/entity top_level does not have driver. [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_level.vhd:57]
-INFO: [Synth 8-256] done synthesizing module 'top_level' (6#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_level.vhd:61]
-WARNING: [Synth 8-3331] design top_level has unconnected port block_done
+INFO: [Synth 8-3491] module 'quantization' declared at 'C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quantization.vhd:36' bound to instance 'U_QUANTIZATION' of component 'quantization' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_level.vhd:194]
+INFO: [Synth 8-638] synthesizing module 'quantization' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quantization.vhd:51]
+WARNING: [Synth 8-6014] Unused sequential element dct_val_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quantization.vhd:95]
+WARNING: [Synth 8-6014] Unused sequential element q_val_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quantization.vhd:96]
+WARNING: [Synth 8-6014] Unused sequential element quantized_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quantization.vhd:98]
+INFO: [Synth 8-256] done synthesizing module 'quantization' (6#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quantization.vhd:51]
+INFO: [Synth 8-3491] module 'quant_block_buf' declared at 'C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quant_block_buf.vhd:35' bound to instance 'U_QBUF' of component 'quant_block_buf' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_level.vhd:208]
+INFO: [Synth 8-638] synthesizing module 'quant_block_buf' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quant_block_buf.vhd:51]
+WARNING: [Synth 8-6014] Unused sequential element u_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quant_block_buf.vhd:66]
+WARNING: [Synth 8-6014] Unused sequential element v_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quant_block_buf.vhd:67]
+INFO: [Synth 8-256] done synthesizing module 'quant_block_buf' (7#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quant_block_buf.vhd:51]
+INFO: [Synth 8-3491] module 'zigzag_encoding' declared at 'C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/zigzag_encoding.vhd:35' bound to instance 'U_ZIGZAG' of component 'zigzag_encoding' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_level.vhd:222]
+INFO: [Synth 8-638] synthesizing module 'zigzag_encoding' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/zigzag_encoding.vhd:49]
+WARNING: [Synth 8-6014] Unused sequential element index_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/zigzag_encoding.vhd:87]
+WARNING: [Synth 8-6014] Unused sequential element row_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/zigzag_encoding.vhd:88]
+WARNING: [Synth 8-6014] Unused sequential element col_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/zigzag_encoding.vhd:89]
+INFO: [Synth 8-256] done synthesizing module 'zigzag_encoding' (8#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/zigzag_encoding.vhd:49]
+INFO: [Synth 8-256] done synthesizing module 'top_level' (9#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_level.vhd:70]
+WARNING: [Synth 8-3331] design top_level has unconnected port start
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][15]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][14]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][13]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][12]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][11]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][10]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][9]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][8]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][7]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][6]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][5]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][4]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][3]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][2]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][1]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,0][0]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][15]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][14]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][13]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][12]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][11]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][10]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][9]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][8]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][7]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][6]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][5]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][4]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][3]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][2]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][1]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,1][0]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][15]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][14]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][13]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][12]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][11]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][10]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][9]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][8]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][7]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][6]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][5]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][4]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][3]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][2]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][1]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,2][0]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][15]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][14]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][13]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][12]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][11]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][10]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][9]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][8]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][7]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][6]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][5]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][4]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][3]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][2]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][1]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,3][0]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][15]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][14]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][13]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][12]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][11]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][10]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][9]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][8]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][7]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][6]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][5]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][4]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][3]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][2]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][1]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,4][0]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][15]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][14]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][13]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][12]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][11]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][10]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][9]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][8]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][7]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][6]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][5]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][4]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][3]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][2]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][1]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,5][0]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,6][15]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,6][14]
+WARNING: [Synth 8-3331] design top_level has unconnected port quant_block[0,6][13]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 425.484 ; gain = 164.375
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 440.562 ; gain = 179.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 425.484 ; gain = 164.375
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 440.562 ; gain = 179.789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 425.484 ; gain = 164.375
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 440.562 ; gain = 179.789
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'memory_controller'
@@ -142,6 +258,82 @@ INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,5]" won't be mapped to Block RAM b
 INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,6]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dct_start" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "block_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "round_div" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "round_div1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "block_valid" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,4]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,5]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,6]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "zigzag_cnt" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "active" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[20]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[21]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[22]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[23]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[24]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[25]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[26]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[27]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[28]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[29]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[30]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[31]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[32]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[33]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[34]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[35]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[36]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[37]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[38]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[39]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[40]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[41]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[42]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[43]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[44]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[45]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[46]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[47]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[48]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[49]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[50]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[51]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[52]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[53]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[54]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[55]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[56]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[57]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[58]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[59]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[60]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[61]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "zigzag_out_reg[62]" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -152,7 +344,7 @@ INFO: [Synth 8-5546] ROM "block_done" won't be mapped to RAM because it is too s
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'memory_controller'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 468.449 ; gain = 207.340
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 547.418 ; gain = 286.645
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -166,38 +358,41 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 6     
+	   2 Input     32 Bit       Adders := 8     
+	   3 Input     32 Bit       Adders := 1     
 	   3 Input     31 Bit       Adders := 1     
-	   2 Input     31 Bit       Adders := 5     
-	   2 Input     16 Bit       Adders := 1     
+	   2 Input     31 Bit       Adders := 8     
+	   2 Input     16 Bit       Adders := 3     
 	   2 Input     10 Bit       Adders := 1     
 	   2 Input      8 Bit       Adders := 2     
-	   2 Input      6 Bit       Adders := 1     
+	   2 Input      6 Bit       Adders := 3     
 	   2 Input      3 Bit       Adders := 7     
 +---Registers : 
 	               32 Bit    Registers := 3     
-	               16 Bit    Registers := 10    
+	               16 Bit    Registers := 139   
 	               10 Bit    Registers := 64    
 	                8 Bit    Registers := 13    
-	                6 Bit    Registers := 1     
+	                6 Bit    Registers := 3     
 	                3 Bit    Registers := 6     
-	                1 Bit    Registers := 4     
+	                1 Bit    Registers := 11    
 +---Multipliers : 
 	                16x32  Multipliers := 2     
 +---RAMs : 
 	               2K Bit         RAMs := 8     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 3     
-	   2 Input     31 Bit        Muxes := 5     
-	   2 Input     16 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 4     
+	   2 Input     31 Bit        Muxes := 8     
+	   2 Input     17 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 8     
 	   8 Input     16 Bit        Muxes := 16    
 	   2 Input     15 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 8     
-	   2 Input      6 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 8     
+	   2 Input      6 Bit        Muxes := 2     
 	   2 Input      3 Bit        Muxes := 5     
 	   4 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 87    
+	   2 Input      1 Bit        Muxes := 228   
 	   4 Input      1 Bit        Muxes := 1     
 	   3 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
@@ -234,7 +429,7 @@ Detailed RTL Component Info :
 +---Registers : 
 	                8 Bit    Registers := 2     
 	                3 Bit    Registers := 2     
-	                1 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
 +---Muxes : 
 	   2 Input      3 Bit        Muxes := 2     
 	   4 Input      2 Bit        Muxes := 1     
@@ -278,6 +473,44 @@ Detailed RTL Component Info :
 	   2 Input      3 Bit        Muxes := 2     
 	   2 Input      1 Bit        Muxes := 73    
 	   3 Input      1 Bit        Muxes := 1     
+Module quantization 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   3 Input     32 Bit       Adders := 1     
+	   2 Input     31 Bit       Adders := 3     
+	   2 Input     16 Bit       Adders := 2     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     31 Bit        Muxes := 3     
+	   2 Input     17 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 6     
+	   8 Input      8 Bit        Muxes := 8     
+	   2 Input      1 Bit        Muxes := 1     
+Module quant_block_buf 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 64    
+	                6 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 73    
+Module zigzag_encoding 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 64    
+	                6 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 67    
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -335,15 +568,25 @@ INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,3]" won't be mapped to Block RAM b
 INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,6]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-WARNING: [Synth 8-3331] design top_level has unconnected port block_done
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[0].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[1].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[2].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[3].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[4].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[5].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[6].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM U_MEM/RAMS[7].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-5545] ROM "round_div1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "round_div" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "block_valid" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,4]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,5]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,6]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "quant_buf_reg[0,7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[0].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[1].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[2].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[3].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[4].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[5].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[6].U_RAM/ram_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[7].U_RAM/ram_reg to conserve power
 INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,7][9]'
 INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,7][9]'
 INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,7][9]'
@@ -462,59 +705,92 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_D
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][13] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][14] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,1][15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc2_reg[16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\acc_final_reg[30] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/U_DCT/\dct_out_reg[0,0][15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\output_u_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\dct_coeff_reg[15] )
-WARNING: [Synth 8-3332] Sequential element (U_MEM/FSM_sequential_state_reg[1]) is unused and will be removed from module top_level.
-WARNING: [Synth 8-3332] Sequential element (U_MEM/FSM_sequential_state_reg[0]) is unused and will be removed from module top_level.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_DCT/\output_v_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[7,7][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[6,7][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[5,7][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[4,7][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[3,7][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[2,7][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[1,7][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[0,7][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[7,6][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[6,6][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[5,6][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[4,6][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[3,6][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[2,6][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[1,6][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[0,6][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[7,5][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[6,5][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[5,5][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[4,5][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[3,5][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[2,5][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[1,5][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[0,5][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[7,4][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[6,4][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[5,4][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[4,4][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[3,4][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[2,4][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[1,4][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[0,4][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[7,3][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[6,3][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[5,3][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[4,3][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[3,3][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[2,3][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[1,3][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[0,3][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[7,2][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[6,2][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[5,2][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[4,2][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[3,2][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[2,2][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[1,2][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[0,2][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[7,1][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[6,1][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[5,1][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[4,1][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[3,1][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[2,1][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[1,1][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[0,1][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[7,0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[6,0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[5,0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[4,0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[3,0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[2,0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[1,0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[0,0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[7,7][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[6,7][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[5,7][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[4,7][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[3,7][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[2,7][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[1,7][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[0,7][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[7,6][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[6,6][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[5,6][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[4,6][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[3,6][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[2,6][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[1,6][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[0,6][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[7,5][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_QBUF/\quant_buf_reg[6,5][1] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_state_reg[1]) is unused and will be removed from module memory_controller.
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_state_reg[0]) is unused and will be removed from module memory_controller.
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'U_DCT/U_DCT/done_reg__0/Q' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:76]
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:76]
 CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:76]
@@ -756,11 +1032,20 @@ WARNING: [Synth 8-3332] Sequential element (acc1_reg[2]) is unused and will be r
 WARNING: [Synth 8-3332] Sequential element (acc1_reg[1]) is unused and will be removed from module dct_transform.
 WARNING: [Synth 8-3332] Sequential element (acc1_reg[0]) is unused and will be removed from module dct_transform.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 576.168 ; gain = 315.059
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 605.477 ; gain = 344.703
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
+
+ROM:
++----------------+-----------------+---------------+----------------+
+|Module Name     | RTL Object      | Depth x Width | Implemented As | 
++----------------+-----------------+---------------+----------------+
+|zigzag_encoding | ZIGZAG_INDEX[0] | 64x6          | LUT            | 
+|zigzag_encoding | ZIGZAG_INDEX[0] | 64x6          | LUT            | 
++----------------+-----------------+---------------+----------------+
+
 
 DSP: Preliminary Mapping  Report (see note below)
 +--------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
@@ -790,7 +1075,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 576.168 ; gain = 315.059
+Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 605.477 ; gain = 344.703
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -802,7 +1087,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 605.477 ; gain = 344.703
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -826,7 +1111,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+Finished IO Insertion : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 605.477 ; gain = 344.703
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -839,7 +1124,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 605.477 ; gain = 344.703
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -851,25 +1136,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 605.477 ; gain = 344.703
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 605.477 ; gain = 344.703
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 605.477 ; gain = 344.703
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 605.477 ; gain = 344.703
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -882,39 +1167,39 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+------+------+
-|      |Cell  |Count |
-+------+------+------+
-|1     |OBUF  |    23|
-|2     |OBUFT |     1|
-+------+------+------+
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |OBUF |  1026|
++------+-----+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |    24|
+|1     |top      |       |  1026|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 605.477 ; gain = 344.703
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 144 critical warnings and 110 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
-Synthesis Optimization Complete : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 576.910 ; gain = 315.801
+Synthesis finished with 0 errors, 144 critical warnings and 4213 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 605.477 ; gain = 344.703
+Synthesis Optimization Complete : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 605.477 ; gain = 344.703
 INFO: [Project 1-571] Translating synthesized netlist
+WARNING: [Netlist 29-101] Netlist 'top_level' is not ideal for floorplanning, since the cellview 'top_level' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 683.156 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 691.910 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-294 Infos, 110 Warnings, 144 Critical Warnings and 0 Errors encountered.
+424 Infos, 216 Warnings, 144 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 683.156 ; gain = 435.172
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 683.156 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 691.910 ; gain = 444.152
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 691.910 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_image_compression.runs/synth_1/top_level.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_level_utilization_synth.rpt -pb top_level_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Nov 30 16:07:56 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Jan 18 17:32:02 2026...

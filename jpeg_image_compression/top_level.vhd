@@ -27,6 +27,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use IEEE.MATH_REAL.ALL;
 use work.dct_package.ALL;
+use work.jpeg_type_pkg.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -40,18 +41,28 @@ entity top_level is
   );
   
   Port ( 
-    clk         : in std_logic;
-    reset       : in std_logic;
+    clk          : in std_logic;
+    reset        : in std_logic;
     
-    R           : in std_logic_vector(7 downto 0);
-    G           : in std_logic_vector(7 downto 0);
-    B           : in std_logic_vector(7 downto 0); 
+    R            : in std_logic_vector(7 downto 0);
+    G            : in std_logic_vector(7 downto 0);
+    B            : in std_logic_vector(7 downto 0); 
     
-    p_valid     : in std_logic;
-    i_valid     : in std_logic;
+    p_valid      : in std_logic;
+    i_valid      : in std_logic;
     
-    out_valid    : out std_logic;
-    quant_out    : out std_logic_vector(15 downto 0)
+    start        : in std_logic;
+    quant_block  : in block8x8;
+    
+--    start        : in std_logic;
+    block_in     : in block64;
+    
+--    stream_out   : out std_logic_vector(255 downto 0);
+--    valid        : out std_logic;
+--    finish       : out std_logic
+    zigzag_valid  : out std_logic;
+    done          : out std_logic;
+    zigzag_out    : out block64
   
   );
 end top_level;
@@ -66,6 +77,14 @@ architecture rtl of top_level is
     signal coeff_u     : std_logic_vector(2 downto 0);
     signal coeff_v     : std_logic_vector(2 downto 0);
     signal coeff_valid : std_logic;
+--    signal zigzag_valid: std_logic;
+    signal quant_valid : std_logic;
+    signal quant_out   : std_logic_vector(15 downto 0);
+--    signal quant_coeff : std_logic_vector(15 downto 0);
+    signal block_out   : block8x8;
+--    signal done        : std_logic;
+    signal block_ready : std_logic;
+--    signal zigzag_out  : block64;
     
     component quantization
     Port (
@@ -81,6 +100,49 @@ architecture rtl of top_level is
         quant_out    : out std_logic_vector(15 downto 0)
    );
    end component;
+   
+   component zigzag_encoding
+   Port (
+        clk          : in std_logic;
+        reset        : in std_logic;
+        
+        start        : in std_logic;
+        quant_block  : in block8x8;
+        
+        zigzag_valid : out std_logic;
+        done         : out std_logic;
+        zigzag_out   : out block64
+   );
+   end component;
+   
+--   component huffman_coding
+--   Port (
+--        clk          : in std_logic;
+--        reset        : in std_logic;
+        
+--        start        : in std_logic;
+--        block_in     : in block64;
+        
+--        stream_out   : out std_logic_vector(255 downto 0);
+--        valid        : out std_logic;
+--        finish       : out std_logic
+--   );
+--   end component;
+   
+   component quant_block_buf
+      Port (
+        clk         : in std_logic;
+        reset       : in std_logic;
+        
+        quant_in    : in std_logic_vector(15 downto 0);
+        u_in        : in std_logic_vector(2 downto 0);
+        v_in        : in std_logic_vector(2 downto 0);
+        in_valid    : in std_logic;
+        
+        block_out   : out block8x8;
+        block_valid : out std_logic
+       );
+    end component;
 
 begin
 
@@ -129,8 +191,8 @@ begin
          coeff_valid  => coeff_valid
       );
       
-      U_QUANTIZATION: quantization
-        port map(
+    U_QUANTIZATION: quantization
+       port map(
             clk        => clk,
             reset      => reset,
             
@@ -138,8 +200,49 @@ begin
             u_dct      => coeff_u,
             v_dct      => coeff_v,
             in_valid   => coeff_valid,
-            out_valid  => out_valid,
+            
+            out_valid  => quant_valid,
             quant_out  => quant_out
         );
+        
+    U_QBUF: quant_block_buf
+        port map(
+                clk         => clk,
+                reset       => reset,
+                
+                quant_in    => quant_out,
+                u_in        => coeff_u,
+                v_in        => coeff_v,
+                in_valid    => quant_valid,
+                
+                block_out   => block_out,
+                block_valid => block_ready
+        );
+        
+    U_ZIGZAG: zigzag_encoding
+        port map (
+            clk           => clk,
+            reset         => reset,
+            
+            start         => block_ready,
+            quant_block   => block_out,
+            
+            zigzag_valid  => zigzag_valid,
+            done          => done,
+            zigzag_out    => zigzag_out
+        );
+    
+--    U_HUFFMANCODING: huffman_coding
+--        port map(
+--            clk          => clk,
+--            reset        => reset,
+            
+--            start        => done,
+--            block_in     => zigzag_out,
+            
+--            stream_out   => stream_out, 
+--            valid        => valid,
+--            finish       => finish
+--        );
 
 end rtl;

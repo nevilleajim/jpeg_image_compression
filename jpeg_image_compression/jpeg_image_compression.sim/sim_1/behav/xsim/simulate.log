@@ -1,4 +1,4 @@
 Vivado Simulator 2018.3
 Time resolution is 1 ps
 Note: Image data successfully loaded.
-Time: 0 ps  Iteration: 0  Process: /conversion_tb/read_files_proc  File: C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/conversion_tb.vhd
+Time: 0 ps  Iteration: 0  Process: /top_module_jpeg_compression_tb/read_files_proc  File: C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_module_jpeg_compression_tb.vhd

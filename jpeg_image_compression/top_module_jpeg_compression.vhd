@@ -50,9 +50,7 @@ entity top_module_jpeg_compression is
         i_valid      : in std_logic; 
         
         start        : in std_logic; 
-        quant_block  : in block8x8; 
-        -- start : in std_logic; 
-        block_in     : in block64; 
+--        quant_block  : in block8x8;  
         -- stream_out : out std_logic_vector(255 downto 0); 
         -- valid : out std_logic; 
         -- finish : out std_logic; 
@@ -81,6 +79,7 @@ architecture rtl of top_module_jpeg_compression is
     -- signal done : std_logic; 
     signal block_ready  : std_logic; 
     -- signal zigzag_out : block64;
+    signal block_in     : block64;
     
     component quantization 
     Port ( 

@@ -1,2 +1,6 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/conversion_tb.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'conversion_tb'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'rgb_to_ycbcr_converter'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_module_jpeg_compression.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'top_module_jpeg_compression'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_module_jpeg_compression_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'top_module_jpeg_compression_tb'

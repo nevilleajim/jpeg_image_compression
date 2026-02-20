@@ -1,6 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../rgb_to_ycbcr_converter.vhd" \
-
-# Do not sort compile order
-nosort

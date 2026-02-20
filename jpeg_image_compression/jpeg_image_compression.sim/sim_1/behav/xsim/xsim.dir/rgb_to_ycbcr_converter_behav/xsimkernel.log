@@ -1,7 +1,0 @@
-Running: xsim.dir/rgb_to_ycbcr_converter_behav/xsimk.exe -simmode gui -wdb rgb_to_ycbcr_converter_behav.wdb -simrunnum 0 -socket 64434
-Design successfully loaded
-Design Loading Memory Usage: 8388 KB (Peak: 8388 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 9024 KB (Peak: 9024 KB)
-Simulation CPU Usage: 30 ms

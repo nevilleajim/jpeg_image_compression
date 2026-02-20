@@ -26,6 +26,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
 use IEEE.MATH_REAL.ALL; 
+use STD.TEXTIO.ALL;
+use IEEE.STD_LOGIC_TEXTIO.ALL;
 use work.dct_package.ALL; 
 use work.jpeg_type_pkg.ALL;
 
@@ -57,6 +59,18 @@ architecture rtl of top_module_jpeg_compression_tb is
     signal zigzag_valid : std_logic; 
     signal done         : std_logic; 
     signal zigzag_out   : block64;
+    
+    constant Width  : integer := 8;
+    constant Height : integer := 8;
+    constant PIXELS : integer := Width * Height;
+
+    type pixel_array is array (0 to PIXELS-1) of std_logic_vector(7 downto 0);
+    signal red_data, green_data, blue_data : pixel_array;
+    
+    file red_file     : text open read_mode is "C:/Users/hp/Documents/FGPA/mini_project/python_implementation/red_channel.txt";
+    file green_file   : text open read_mode is "C:/Users/hp/Documents/FGPA/mini_project/python_implementation/green_channel.txt";
+    file blue_file    : text open read_mode is "C:/Users/hp/Documents/FGPA/mini_project/python_implementation/blue_channel.txt";
+    file zigzag_file  : text open write_mode is "C:/Users/hp/Documents/FGPA/mini_project/python_implementation/zigzag_output.txt";
 
     component top_module_jpeg_compression
     port (
@@ -71,8 +85,8 @@ architecture rtl of top_module_jpeg_compression_tb is
         i_valid      : in std_logic; 
         
         start        : in std_logic; 
-        quant_block  : in block8x8;
-        block_in     : in block64;
+--        quant_block  : in block8x8;
+--        block_in     : in block64;
         zigzag_valid : out std_logic; 
         done         : out std_logic; 
         zigzag_out   : out block64
@@ -91,11 +105,83 @@ begin
         p_valid      => p_valid,
         i_valid      => i_valid,
         start        => start,
-        quant_block  => quant_block,
-        block_in     => block_in,
         zigzag_valid => zigzag_valid,
         done         => done,
         zigzag_out   => zigzag_out
     );
+    
+    read_files_proc : process
+        variable L : line;
+        variable value_int : integer;
+    begin
+        for i in 0 to PIXELS-1 loop
+            if endfile(red_file) then
+                exit;
+            end if;
+            readline(red_file, L);
+            read(L, value_int);
+            red_data(i) <= std_logic_vector(to_unsigned(value_int, 8));
+        end loop;
+
+        for i in 0 to PIXELS-1 loop
+            if endfile(green_file) then
+                exit;
+            end if;
+            readline(green_file, L);
+            read(L, value_int);
+            green_data(i) <= std_logic_vector(to_unsigned(value_int, 8));
+        end loop;
+
+        for i in 0 to PIXELS-1 loop
+            if endfile(blue_file) then
+                exit;
+            end if;
+            readline(blue_file, L);
+            read(L, value_int);
+            blue_data(i) <= std_logic_vector(to_unsigned(value_int, 8));
+        end loop;
+
+        report "Image data successfully loaded.";
+        wait;
+    end process read_files_proc;
+    
+    reset_proc: process
+    begin
+        reset <= '1';
+        wait for 20ns;
+        
+        reset <= '0';
+        wait for 20ns;
+    end process reset_proc;
+    
+    stim_process: process
+    
+    variable L      : line;
+    
+    begin
+        wait until rising_edge(clk);
+       
+        i_valid <= '1';
+        
+        for i in 0 to PIXELS-1 loop
+            p_valid <= '1';
+            R       <= red_data(i);
+            G       <= green_data(i);
+            B       <= blue_data(i);
+            
+            wait until rising_edge(clk);
+        end loop;
+        
+        p_valid     <= '0';
+        i_valid     <= '0';
+        
+        wait until done <= '1';
+        report "JPEG Block Completed";
+        
+        for i in 0 to 63 loop
+            write(L, to_integer(signed(zigzag_out(i))));
+            writeline(zigzag_file, L);
+        end loop;
+    end process stim_process;
 
 end rtl;

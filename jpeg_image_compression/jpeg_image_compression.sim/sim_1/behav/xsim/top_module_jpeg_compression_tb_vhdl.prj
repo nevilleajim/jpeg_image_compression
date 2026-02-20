@@ -1,0 +1,17 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../jpeg_image_compression.srcs/sources_1/imports/jpeg_image_compression/cosine_pck.vhd" \
+"../../../../dct_transform.vhd" \
+"../../../../dct_transform_streaming.vhd" \
+"../../../../jpeg_type_pkg.vhd" \
+"../../../../simple_dual_ram.vhd" \
+"../../../../memory_controller.vhd" \
+"../../../../quant_block_buf.vhd" \
+"../../../../quantization.vhd" \
+"../../../../rgb_to_ycbcr_converter.vhd" \
+"../../../../top_module_jpeg_compression.vhd" \
+"../../../../zigzag_encoding.vhd" \
+"../../../../top_module_jpeg_compression_tb.vhd" \
+
+# Do not sort compile order
+nosort

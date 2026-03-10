@@ -50,6 +50,174 @@ entity memory_controller is
     );
 end memory_controller;
 
+--architecture rtl of memory_controller is
+--    signal state          : std_logic_vector(1 downto 0);
+--    constant RESET_ST     : std_logic_vector(1 downto 0) := "00";
+--    constant WAIT_FRAME   : std_logic_vector(1 downto 0) := "01";
+--    constant WAIT_PIXELS  : std_logic_vector(1 downto 0) := "10";
+--    constant WRITE        : std_logic_vector(1 downto 0) := "11";
+
+--    signal ram_we         : std_logic_vector(7 downto 0);
+--    signal ram_addr_wr    : std_logic_vector(7 downto 0);
+--    signal ram_addr_rd    : std_logic_vector(7 downto 0);
+--    signal ram_dout       : std_logic_vector(63 downto 0);
+    
+--    signal block_index    : unsigned(2 downto 0) := (others => '0');
+--    signal line_addr      : unsigned(7 downto 0) := (others => '0');
+--    signal lines_written  : unsigned(7 downto 0) := (others => '0');
+         
+--    signal block_row      : unsigned(7 downto 0) := (others => '0');
+--    signal block_col      : unsigned(2 downto 0) := "000";
+--    signal read_active    : std_logic := '0';
+--    signal read_row       : unsigned(7 downto 0) := (others => '0');
+--    signal read_col       : unsigned(7 downto 0) := (others => '0');
+--    signal pixel_valid_i  : std_logic := '0';
+    
+--    signal i_valid_prev   : std_logic := '0';
+--    signal i_valid_rise   : std_logic := '0';
+
+--begin
+
+--    RAMS: for i in 0 to 7 generate
+--     U_RAM : entity work.simple_dual_ram
+--     generic map (
+--         DATA_WIDTH => 8,
+--         ADDR_WIDTH => 8
+--     )
+--     port map (
+--         clk     => clk,
+--         write_a => ram_we(i),
+--         addr_a  => ram_addr_wr,
+--         din_a   => pixel_in,
+--         addr_b  => ram_addr_rd, 
+--         dout_b  => ram_dout(8*(i+1)-1 downto 8*i)
+--     );
+--    end generate;
+    
+--    edge_detector_proc : process(clk)
+--    begin
+--        if rising_edge(clk) then
+--            i_valid_prev  <= i_valid;
+--            i_valid_rise  <= i_valid and not i_valid_prev;
+--        end if;
+--    end process;
+
+--    fsm : process (clk)
+--     begin
+--        if rising_edge(clk) then
+--            if reset = '1' then
+--                state <= RESET_ST; 
+--            else 
+--                case state is
+--                    when RESET_ST    => state <= WAIT_FRAME;
+--                    when WAIT_FRAME  => if i_valid_rise = '1' then 
+--                                            state <= WAIT_PIXELS;    
+--                                        end if;
+--                    when WAIT_PIXELS => if p_valid = '1' then 
+--                                            state <= WRITE; 
+--                                        end if;
+--                    when WRITE       => if p_valid = '0' then 
+--                                            state <= WAIT_PIXELS; 
+--                                        end if;
+--                    when others      => state <= RESET_ST;
+--                end case;
+--            end if;
+--        end if;
+--     end process;
+     
+--    counters : process(clk)
+--     begin
+--        if rising_edge(clk) then
+--            if reset = '1' or state = RESET_ST or i_valid_rise = '1' then
+--                block_index    <= (others => '0');
+--                line_addr      <= (others => '0');
+--                lines_written  <= (others => '0');
+--            elsif state = WRITE and p_valid = '1' then
+--                if block_index = 7 then
+--                    block_index    <= (others => '0');
+--                    line_addr      <= line_addr + 1;
+--                    lines_written  <= lines_written + 1;
+--                else
+--                    block_index <= block_index + 1;
+--                end if;
+--            end if;
+--        end if;
+--     end process;
+     
+--     we_gen: for i in 0 to 7 generate
+--        ram_we(i) <= '1' when (state = WRITE and p_valid = '1' 
+--                               and block_index = to_unsigned(i, 3)) 
+--                         else '0';
+--     end generate;
+     
+--     ram_addr_wr <= std_logic_vector(line_addr);
+     
+--     read_proc : process(clk)
+--     begin
+--        if rising_edge(clk) then
+--            if reset = '1' or i_valid_rise = '1' then
+--                read_active     <= '0';
+--                read_row        <= (others => '0');
+--                read_col        <= (others => '0');
+--                pixel_valid_i   <= '0';
+--            elsif lines_written >= 8 and read_active = '0' then
+--                read_active   <= '1';
+--                pixel_valid_i <= '1';
+--            elsif read_active = '1' then
+--                pixel_valid_i <= '1';
+                
+--                if read_col = 7 then
+--                    read_col <= (others => '0');
+--                    if read_row = 7 then
+--                        read_row      <= (others => '0');
+--                        read_active   <= '0';
+--                        pixel_valid_i <= '0';
+--                    else
+--                        read_row      <= read_row + 1;
+--                    end if;
+--                else 
+--                    pixel_valid_i     <= '0';
+--                end if;
+--           end if;
+--       end if;
+--     end process;
+     
+--     ram_addr_rd    <= std_logic_vector(read_row);
+--     pixel_out      <= ram_dout(8 * to_integer(read_col) + 7 downto 8 * to_integer(read_col));
+--     pixel_valid    <= pixel_valid_i;
+     
+--     read_ram : process(clk)
+--     begin
+--        if rising_edge(clk) then
+--            if reset = '1' then
+--                block_row     <= (others => '0');
+--                block_col     <= "000";
+--                pixel_valid   <= '0';
+--            elsif state = WRITE and p_valid = '1' and line_addr >= 1 then
+--                pixel_valid <= '1';
+                               
+--                if block_col = 7 then
+--                        block_col <= "000";
+--                    if block_row = 7 then
+--                        block_row <= (others => '0');
+--                    else 
+--                        block_row <= block_row + 1;
+--                    end if;
+----                elsif block_col = 7 then
+----                    block_row <= block_row + 1;
+----                    block_col <= "000";
+--                    else
+--                        block_col <= block_col + 1;
+--                    end if;
+--                else
+--                    pixel_valid <= '0';
+--            end if;
+--         end if; 
+--     end process;
+     
+--     ram_addr_rd <= std_logic_vector(block_row);
+--     pixel_out   <= ram_dout(8 * to_integer(block_col)+7 downto 8 * to_integer(block_col));
+
 architecture rtl of memory_controller is
     signal state          : std_logic_vector(1 downto 0);
     constant RESET_ST     : std_logic_vector(1 downto 0) := "00";
@@ -64,9 +232,12 @@ architecture rtl of memory_controller is
     
     signal block_index    : unsigned(2 downto 0) := (others => '0');
     signal line_addr      : unsigned(7 downto 0) := (others => '0');
-         
-    signal block_row      : unsigned(7 downto 0) := (others => '0');
-    signal block_col      : unsigned(2 downto 0) := "000";
+    signal lines_written  : unsigned(7 downto 0) := (others => '0');
+
+    signal read_active    : std_logic := '0';
+    signal read_row       : unsigned(7 downto 0) := (others => '0');
+    signal read_col       : unsigned(2 downto 0) := (others => '0'); -- 3 bits!
+    signal pixel_valid_i  : std_logic := '0';
     
     signal i_valid_prev   : std_logic := '0';
     signal i_valid_rise   : std_logic := '0';
@@ -74,103 +245,117 @@ architecture rtl of memory_controller is
 begin
 
     RAMS: for i in 0 to 7 generate
-     U_RAM : entity work.simple_dual_ram
-     generic map (
-         DATA_WIDTH => 8,
-         ADDR_WIDTH => 8
-     )
-     port map (
-         clk     => clk,
-         write_a => ram_we(i),
-         addr_a  => ram_addr_wr,
-         din_a   => pixel_in,
-         addr_b  => ram_addr_rd, 
-         dout_b  => ram_dout(8*(i+1)-1 downto 8*i)
-     );
+        U_RAM : entity work.simple_dual_ram
+        generic map (DATA_WIDTH => 8, ADDR_WIDTH => 8)
+        port map (
+            clk     => clk,
+            write_a => ram_we(i),
+            addr_a  => ram_addr_wr,
+            din_a   => pixel_in,
+            addr_b  => ram_addr_rd,
+            dout_b  => ram_dout(8*(i+1)-1 downto 8*i)
+        );
     end generate;
     
     edge_detector_proc : process(clk)
     begin
         if rising_edge(clk) then
-            i_valid_prev  <= i_valid;
-            i_valid_rise  <= i_valid and not i_valid_prev;
+            i_valid_prev <= i_valid;
+            i_valid_rise <= i_valid and not i_valid_prev;
         end if;
     end process;
 
-    fsm : process (clk)
-     begin
+    fsm : process(clk)
+    begin
         if rising_edge(clk) then
             if reset = '1' then
-                state <= RESET_ST; 
-            else 
+                state <= RESET_ST;
+            else
                 case state is
                     when RESET_ST    => state <= WAIT_FRAME;
-                    when WAIT_FRAME  => if i_valid_rise = '1' then 
-                                            state <= WAIT_PIXELS;    
-                                        end if;
-                    when WAIT_PIXELS => if p_valid = '1' then 
-                                            state <= WRITE; 
-                                        end if;
-                    when WRITE       => if p_valid = '0' then 
-                                            state <= WAIT_PIXELS; 
-                                        end if;
+                    when WAIT_FRAME  => if i_valid_rise = '1' then
+                                           state <= WAIT_PIXELS;
+                                       end if;
+                    when WAIT_PIXELS => if p_valid = '1' then
+                                           state <= WRITE;
+                                       end if;
+                    when WRITE       => if p_valid = '0' then
+                                           state <= WAIT_PIXELS;
+                                       end if;
                     when others      => state <= RESET_ST;
                 end case;
             end if;
         end if;
-     end process;
-     
+    end process;
+
     counters : process(clk)
-     begin
+    begin
         if rising_edge(clk) then
-            if reset = '1' or state = RESET_ST or i_valid = '1' then
-                block_index  <= (others => '0');
-                line_addr    <= (others => '0');
+            if reset = '1' or state = RESET_ST or i_valid_rise = '1' then
+                block_index   <= (others => '0');
+                line_addr     <= (others => '0');
+                lines_written <= (others => '0');  -- FIX: reset to 0
             elsif state = WRITE and p_valid = '1' then
                 if block_index = 7 then
-                    block_index <= (others => '0');
+                    block_index   <= (others => '0');
+                    line_addr     <= line_addr + 1;
+                    lines_written <= lines_written + 1;
                 else
                     block_index <= block_index + 1;
                 end if;
-            
-                if block_index = 7 then
-                    line_addr <= line_addr + 1;
-                end if;
             end if;
         end if;
-     end process;
-     
-     we_gen: for i in 0 to 7 generate
-        ram_we(i) <= '1' when (state = WRITE and p_valid = '1' and block_index = to_unsigned(i, 3)) else '0';
-     end generate;
-     
-     ram_addr_wr <= std_logic_vector(line_addr);
-     
-     read_ram : process(clk)
-     begin
+    end process;
+
+    we_gen: for i in 0 to 7 generate
+        ram_we(i) <= '1' when (state = WRITE and p_valid = '1'
+                               and block_index = to_unsigned(i, 3))
+                         else '0';
+    end generate;
+
+    ram_addr_wr <= std_logic_vector(line_addr);
+
+    read_proc : process(clk)
+    begin
         if rising_edge(clk) then
-            if reset = '1' then
-                block_row     <= (others => '0');
-                block_col     <= "000";
-                pixel_valid   <= '0';
-            else
-                pixel_valid   <= '1';
-                
-                if block_col = 7 and block_row = 255 then
-                    block_row <= (others => '0');
-                    block_col <= "000";
-                elsif block_col = 7 then
-                    block_row <= block_row + 1;
-                    block_col <= "000";
+            if reset = '1' or i_valid_rise = '1' then
+                read_active   <= '0';
+                read_row      <= (others => '0');
+                read_col      <= (others => '0');
+                pixel_valid_i <= '0';
+
+            elsif lines_written >= 8 and read_active = '0' then
+                read_active   <= '1';
+                read_col      <= (others => '0');
+                read_row      <= (others => '0');
+                pixel_valid_i <= '1';
+
+            elsif read_active = '1' then
+                pixel_valid_i <= '1';
+
+                if read_col = 7 then
+                    read_col <= (others => '0');
+                    if read_row = 7 then
+                        read_row      <= (others => '0');
+                        read_active   <= '0';
+                        pixel_valid_i <= '0';
+                    else
+                        read_row <= read_row + 1;
+                    end if;
                 else
-                    block_col <= block_col + 1;
+                    read_col <= read_col + 1;  -- FIX: increment read_col
                 end if;
+
+            else
+                pixel_valid_i <= '0';
             end if;
-         end if;
-     
-     end process;
-     
-     ram_addr_rd <= std_logic_vector(block_row);
-     pixel_out   <= ram_dout(8 * to_integer(block_col)+7 downto 8 * to_integer(block_col));
+        end if;
+    end process;
+
+    ram_addr_rd <= std_logic_vector(read_row);
+    pixel_out   <= ram_dout(8 * to_integer(read_col) + 7
+                            downto 8 * to_integer(read_col));
+    pixel_valid <= pixel_valid_i;
 
 end rtl;
+--end rtl;

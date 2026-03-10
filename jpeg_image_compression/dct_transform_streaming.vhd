@@ -33,8 +33,8 @@ use work.dct_package.ALL;
 
 entity dct_transform_streaming is
   Port (
-    clk   : in std_logic;
-    reset : in std_logic;
+    clk          : in std_logic;
+    reset        : in std_logic;
     
     pixel_in     : in std_logic_vector(7 downto 0);
     pixel_valid  : in std_logic;
@@ -55,7 +55,6 @@ architecture rtl of dct_transform_streaming is
     
     signal dct_input_buf : cos_matrix := (others => (others => (others => '0')));
     signal dct_start     : std_logic := '0';
-    signal dct_busy      : std_logic;
     signal dct_done      : std_logic;
     signal dct_out_matrix: cos_matrix;
     
@@ -72,22 +71,26 @@ begin
                 pixel_count <= 0;
                 row_idx     <= 0;
                 col_idx     <= 0;
+                dct_start   <= '0';
+                dct_coeff   <= (others => '0');
             elsif pixel_valid = '1' then
                 dct_input_buf(row_idx, col_idx) <= to_signed(to_integer(signed(pixel_in)) - 128, 16);  -- thresholding
+                dct_start  <= '0';
                 
                 if col_idx = 7 then
                     col_idx <= 0;
                     if row_idx = 7 then
-                        row_idx <= 0;
+                        row_idx     <= 0;
                         pixel_count <= 0;
-                        dct_start <= '1';
+                        dct_start   <= '1';
                     else
                         row_idx <= row_idx + 1;
+                        pixel_count <= pixel_count + 1;
                     end if;
                  else
                     col_idx <= col_idx + 1;
+                    pixel_count <= pixel_count + 1;
                  end if;
-                 pixel_count <= pixel_count + 1;
              else
                 dct_start <= '0';
             end if;
@@ -105,14 +108,28 @@ begin
         );
      
      process(clk)
+        variable u  : integer range 0 to 7;
+        variable v  : integer range 0 to 7;
      begin
         if rising_edge(clk) then
             if reset = '1' then
                 coeff_counter  <= 0;
                 coeff_valid    <= '0';
                 block_done     <= '0';
+                output_u       <= 0;
+                output_v       <= 0;
+                dct_coeff      <= (others => '0');
                 
             elsif dct_done = '1' then
+                u := coeff_counter / 8;
+                v := coeff_counter mod 8;
+                
+                output_u    <= u;
+                output_v    <= v;
+                dct_coeff   <= std_logic_vector(dct_out_matrix(u, v));
+                
+                coeff_valid <= '1';
+                
                 if coeff_counter = 63 then
                     coeff_counter <= 0;
                     block_done    <= '1';
@@ -121,10 +138,11 @@ begin
                     block_done    <= '0';
                 end if;
                 
-                output_u  <= coeff_counter / 8;
-                output_v  <= coeff_counter mod 8;
-                dct_coeff <= std_logic_vector(dct_out_matrix(output_u, output_v));
-                coeff_valid <= '1';
+--                elsif dct_done = '1' then
+--                    output_u    <= coeff_counter / 8;
+--                    output_v    <= coeff_counter mod 8;
+--                    dct_coeff   <= std_logic_vector(dct_out_matrix(output_u, output_v));
+--                    coeff_valid <= '1';
              else
                 coeff_valid <= '0';
                 block_done  <= '0';

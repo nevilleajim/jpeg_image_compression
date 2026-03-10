@@ -79,7 +79,7 @@ architecture rtl of top_module_jpeg_compression is
     -- signal done : std_logic; 
     signal block_ready  : std_logic; 
     -- signal zigzag_out : block64;
-    signal block_in     : block64;
+--    signal block_in     : block64;
     
     component quantization 
     Port ( 

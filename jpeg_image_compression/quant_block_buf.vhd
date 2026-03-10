@@ -61,6 +61,12 @@ begin
             if reset = '1' then
                 q_count     <= 0;
                 block_valid <= '0';
+                
+                for row in 0 to 7 loop
+                    for col in 0 to 7 loop
+                        quant_buf(row, col)     <= (others => '0');
+                    end loop;
+                end loop;
             
             elsif in_valid = '1' then
                 u := to_integer(unsigned(u_in));

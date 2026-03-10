@@ -64,7 +64,7 @@ architecture rtl of zigzag_encoding is
     );
 
 begin
-    zigzag_proc : process 
+    zigzag_proc : process(clk)
         variable index : integer range 0 to 63;
         variable row   : integer range 0 to 7;
         variable col   : integer range 0 to 7;
@@ -76,6 +76,10 @@ begin
                 active       <= '0';
                 done         <= '0';
                 zigzag_valid <= '0';
+                
+                for i in 0 to 63 loop
+                    zigzag_out(i) <= (others => '0');
+                end loop;
              
              elsif start = '1' then
                 zigzag_cnt   <= 0;
@@ -104,6 +108,5 @@ begin
                 done         <= '0';   
              end if;
         end if;
-       wait;
      end process zigzag_proc;
 end rtl;

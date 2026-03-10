@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1772622891">
+  <File Type="PA-TCL" Name="top_module_jpeg_compression.tcl"/>
+  <File Type="BITSTR-BMM" Name="top_module_jpeg_compression_bd.bmm"/>
+  <File Type="REPORTS-TCL" Name="top_module_jpeg_compression_reports.tcl"/>
+  <File Type="OPT-DCP" Name="top_module_jpeg_compression_opt.dcp"/>
+  <File Type="OPT-DRC" Name="top_module_jpeg_compression_drc_opted.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="top_module_jpeg_compression_incremental_reuse_pre_placed.rpt"/>
+  <File Type="OPT-HWDEF" Name="top_module_jpeg_compression.hwdef"/>
+  <File Type="PWROPT-DCP" Name="top_module_jpeg_compression_pwropt.dcp"/>
+  <File Type="PLACE-DCP" Name="top_module_jpeg_compression_placed.dcp"/>
+  <File Type="BG-BGN" Name="top_module_jpeg_compression.bgn"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="top_module_jpeg_compression_postplace_pwropt.dcp"/>
+  <File Type="BG-BIN" Name="top_module_jpeg_compression.bin"/>
+  <File Type="PHYSOPT-DCP" Name="top_module_jpeg_compression_physopt.dcp"/>
+  <File Type="BITSTR-MSK" Name="top_module_jpeg_compression.msk"/>
+  <File Type="ROUTE-ERROR-DCP" Name="top_module_jpeg_compression_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="top_module_jpeg_compression_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="top_module_jpeg_compression_routed_bb.dcp"/>
+  <File Type="BITSTR-LTX" Name="top_module_jpeg_compression.ltx"/>
+  <File Type="BITSTR-MMI" Name="top_module_jpeg_compression.mmi"/>
+  <File Type="BITSTR-SYSDEF" Name="top_module_jpeg_compression.sysdef"/>
+  <File Type="ROUTE-TIMING-PB" Name="top_module_jpeg_compression_timing_summary_routed.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="top_module_jpeg_compression_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="top_module_jpeg_compression_postroute_physopt_bb.dcp"/>
+  <File Type="BG-BIT" Name="top_module_jpeg_compression.bit"/>
+  <File Type="BITSTR-RBT" Name="top_module_jpeg_compression.rbt"/>
+  <File Type="BITSTR-NKY" Name="top_module_jpeg_compression.nky"/>
+  <File Type="BG-DRC" Name="top_module_jpeg_compression.drc"/>
+  <File Type="RDI-RDI" Name="top_module_jpeg_compression.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/jpeg_image_compression/cosine_pck.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/cosine_pck.vhd"/>
+        <Attr Name="ImportTime" Val="1760256675"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/dct_transform.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/dct_transform_streaming.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/jpeg_type_pkg.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/simple_dual_ram.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/memory_controller.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/quant_block_buf.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/quantization.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/rgb_to_ycbcr_converter.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/zigzag_encoding.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/top_module_jpeg_compression.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/huffman_coding.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="top_module_jpeg_compression"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>

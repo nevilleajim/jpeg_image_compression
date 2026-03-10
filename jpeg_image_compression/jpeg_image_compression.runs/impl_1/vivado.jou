@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.3.1 (64-bit)
+# SW Build 2489853 on Tue Mar 26 04:20:25 MDT 2019
+# IP Build 2486929 on Tue Mar 26 06:44:21 MDT 2019
+# Start of session at: Wed Mar  4 12:14:58 2026
+# Process ID: 21028
+# Current directory: C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_image_compression.runs/impl_1
+# Command line: vivado.exe -log top_module_jpeg_compression.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top_module_jpeg_compression.tcl -notrace
+# Log file: C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_image_compression.runs/impl_1/top_module_jpeg_compression.vdi
+# Journal file: C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_image_compression.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source top_module_jpeg_compression.tcl -notrace

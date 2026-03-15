@@ -238,6 +238,7 @@ architecture rtl of memory_controller is
     signal read_row       : unsigned(7 downto 0) := (others => '0');
     signal read_col       : unsigned(2 downto 0) := (others => '0'); -- 3 bits!
     signal pixel_valid_i  : std_logic := '0';
+    signal block_read_done: std_logic := '0';
     
     signal i_valid_prev   : std_logic := '0';
     signal i_valid_rise   : std_logic := '0';
@@ -299,10 +300,14 @@ begin
                 if block_index = 7 then
                     block_index   <= (others => '0');
                     line_addr     <= line_addr + 1;
-                    lines_written <= lines_written + 1;
+                    if block_read_done = '0' then
+                        lines_written <= lines_written + 1;
+                    end if;
                 else
                     block_index <= block_index + 1;
                 end if;
+            elsif block_read_done = '1' then
+                lines_written <= (others => '0');
             end if;
         end if;
     end process;
@@ -319,26 +324,30 @@ begin
     begin
         if rising_edge(clk) then
             if reset = '1' or i_valid_rise = '1' then
-                read_active   <= '0';
-                read_row      <= (others => '0');
-                read_col      <= (others => '0');
-                pixel_valid_i <= '0';
+                read_active     <= '0';
+                read_row        <= (others => '0');
+                read_col        <= (others => '0');
+                pixel_valid_i   <= '0';
+                block_read_done <= '0';
 
             elsif lines_written >= 8 and read_active = '0' then
-                read_active   <= '1';
-                read_col      <= (others => '0');
-                read_row      <= (others => '0');
-                pixel_valid_i <= '1';
+                read_active     <= '1';
+                read_col        <= (others => '0');
+                read_row        <= (others => '0');
+                pixel_valid_i   <= '1';
+                block_read_done <= '0';
 
             elsif read_active = '1' then
-                pixel_valid_i <= '1';
+                pixel_valid_i   <= '1';
+                block_read_done <= '0';
 
                 if read_col = 7 then
                     read_col <= (others => '0');
                     if read_row = 7 then
-                        read_row      <= (others => '0');
-                        read_active   <= '0';
-                        pixel_valid_i <= '0';
+                        read_row        <= (others => '0');
+                        read_active     <= '0';
+                        pixel_valid_i   <= '0';
+                        block_read_done <= '1';
                     else
                         read_row <= read_row + 1;
                     end if;
@@ -347,7 +356,8 @@ begin
                 end if;
 
             else
-                pixel_valid_i <= '0';
+                pixel_valid_i   <= '0';
+                block_read_done <= '0';
             end if;
         end if;
     end process;

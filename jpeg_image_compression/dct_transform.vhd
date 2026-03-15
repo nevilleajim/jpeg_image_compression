@@ -19,8 +19,8 @@ architecture rtl of dct_transform is
     signal busy       : std_logic := '0';
     signal i, j, x, y : integer range 0 to 7 := 0;
 
-    constant CI0      : integer := 11585;
-    constant CI1      : integer := 23170;
+    constant CI0      : integer := 23170;
+    constant CI1      : integer := 32768;
 
     signal acc        : integer := 0;
     signal acc1       : integer := 0;
@@ -37,7 +37,7 @@ architecture rtl of dct_transform is
 begin
 
 process(clk, reset)
-    variable acc_final : integer;
+    variable temp      : integer;
     variable i_var     : integer range 0 to 7 := 0;
     variable j_var     : integer range 0 to 7 := 0;
 begin
@@ -52,7 +52,7 @@ begin
         i_var := 0;
         j_var := 0;
         stage <= 0;
-        -- FIX: initialize all dct_out to 0 on reset
+        
         for row in 0 to 7 loop
             for col in 0 to 7 loop
                 dct_out(row, col) <= (others => '0');
@@ -70,7 +70,7 @@ begin
             stage <= 0;
             i_var := 0;
             j_var := 0;
-            -- FIX: clear previous block output when new block starts
+            
             for row in 0 to 7 loop
                 for col in 0 to 7 loop
                     dct_out(row, col) <= (others => '0');
@@ -82,10 +82,8 @@ begin
 
                 -- STAGE 0: Accumulate over all x,y
                 when 0 =>
-                    acc <= acc +
-                          (to_integer(data_in(x,y)) *
-                           to_integer(COS_X(i,x)) *
-                           to_integer(COS_Y(j,y))) / 32768;
+                    temp := (to_integer(data_in(x,y)) * to_integer(COS_X(i,x))) ;
+                    acc  <= acc + ((temp / 1024) * to_integer(COS_Y(j,y))) / 1024;
 
                     if y < 7 then
                         y <= y + 1;
@@ -95,27 +93,27 @@ begin
                     else
                         i_var := i;
                         j_var := j;
+                        x     <= 0;
+                        y     <= 0;
                         stage <= 1;
                     end if;
 
                 -- STAGE 1: Multiply by norm(i)
                 when 1 =>
-                    acc1  <= acc * norm(i_var);
+                    acc1  <= acc * norm(i_var) / 1024;
                     stage <= 2;
 
                 -- STAGE 2: Multiply by norm(j)
                 when 2 =>
-                    acc2  <= acc1 * norm(j_var);
+                    acc2  <= acc1 * norm(j_var) / 1024;
                     stage <= 3;
 
                 -- STAGE 3: Store result, advance i,j
                 when 3 =>
-                    acc_final := 32768;
-                    dct_out(i_var, j_var) <= to_signed(acc2 / acc_final, 16);
+                    
+                    dct_out(i_var, j_var) <= to_signed(acc2, 16);
 
                     acc <= 0;
-                    x   <= 0;
-                    y   <= 0;
 
                     if j < 7 then
                         j     <= j + 1;
@@ -127,6 +125,8 @@ begin
                     else
                         busy  <= '0';
                         done  <= '1';
+                        i     <= 0;
+                        j     <= 0;
                         stage <= 0;
                     end if;
 

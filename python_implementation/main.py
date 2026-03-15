@@ -1,5 +1,6 @@
 from color_space_conversion import rgb_to_YCbCr_converter, YCbCr_to_rgb_converter
 import numpy as np
+import pandas as pd
 from PIL import Image
 from discrete_cosine_transform import dctTransform
 from quantization import quantize_dct
@@ -60,6 +61,10 @@ for i in range(0, h, block_size):
         if block.shape == (8, 8):
             q_block = quantize_dct(block)
             quantized_result[i:i+8, j:j+8] = q_block
+
+first_block = quantized_result[0:8, 0:8]
+print("8x8 quantized block:")
+print(pd.DataFrame(first_block).to_string(index=False, header=False))
             
 normalized_quantized_result = quantized_result - quantized_result.min()
 normalized_quantized_result = (normalized_quantized_result / normalized_quantized_result.max() * 255).astype(np.uint8)

@@ -53,7 +53,6 @@ end quantization;
 architecture rtl of quantization is
 
     type q_matrix_type is array (0 to 7, 0 to 7) of integer;
-    
     constant quant_matrix : q_matrix_type := (
         (16, 11, 10, 16, 24, 40, 51, 61),
         (12, 12, 14, 19, 26, 58, 60, 55),
@@ -77,7 +76,6 @@ architecture rtl of quantization is
         else
             result := (num - denom/2) / denom;
         end if;
-        
         return result;
     end function;
 
@@ -109,7 +107,7 @@ begin
             else
                 out_valid <= '0';
                 u_out     <= (others => '0');
-                u_out     <= (others => '0');
+                v_out     <= (others => '0');
             end if;
         end if;
      end process;

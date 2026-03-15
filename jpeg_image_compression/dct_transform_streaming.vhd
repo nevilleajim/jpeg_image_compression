@@ -58,44 +58,79 @@ architecture rtl of dct_transform_streaming is
     signal dct_done      : std_logic;
     signal dct_out_matrix: cos_matrix;
     
+    signal outputting    : std_logic := '0';
     signal coeff_counter : integer range 0 to 63 := 0;
     signal output_u      : integer range 0 to 7 := 0;
     signal output_v      : integer range 0 to 7 := 0;
     
 begin
 
-     process(clk)
-     begin
+--     process(clk)
+--     begin
+--        if rising_edge(clk) then
+--            if reset = '1' then
+--                pixel_count <= 0;
+--                row_idx     <= 0;
+--                col_idx     <= 0;
+--                dct_start   <= '0';
+--                dct_coeff   <= (others => '0');
+--            elsif pixel_valid = '1' then
+--                dct_input_buf(row_idx, col_idx) <= to_signed(to_integer(signed(pixel_in)) - 128, 16);  -- thresholding
+--                dct_start  <= '0';
+                
+--                if col_idx = 7 then
+--                    col_idx <= 0;
+--                    if row_idx = 7 then
+--                        row_idx     <= 0;
+--                        pixel_count <= 0;
+--                        dct_start   <= '1';
+--                    else
+--                        row_idx <= row_idx + 1;
+--                        pixel_count <= pixel_count + 1;
+--                    end if;
+--                 else
+--                    col_idx <= col_idx + 1;
+--                    pixel_count <= pixel_count + 1;
+--                 end if;
+--             else
+--                dct_start <= '0';
+--            end if;
+--        end if;
+--     end process;
+    process(clk)
+    begin
         if rising_edge(clk) then
             if reset = '1' then
-                pixel_count <= 0;
-                row_idx     <= 0;
-                col_idx     <= 0;
-                dct_start   <= '0';
-                dct_coeff   <= (others => '0');
+                row_idx   <= 0;
+                col_idx   <= 0;
+                dct_start <= '0';
+                dct_input_buf <= (others => (others => (others => '0')));
+ 
             elsif pixel_valid = '1' then
-                dct_input_buf(row_idx, col_idx) <= to_signed(to_integer(signed(pixel_in)) - 128, 16);  -- thresholding
-                dct_start  <= '0';
-                
+                -- Level shift: subtract 128
+                dct_input_buf(row_idx, col_idx) <=
+                    to_signed(to_integer(unsigned(pixel_in)) - 128, 16);
+ 
+                dct_start <= '0';  -- default
+ 
                 if col_idx = 7 then
                     col_idx <= 0;
                     if row_idx = 7 then
-                        row_idx     <= 0;
-                        pixel_count <= 0;
-                        dct_start   <= '1';
+                        -- Full 8x8 block collected, trigger DCT
+                        row_idx   <= 0;
+                        dct_start <= '1';
                     else
                         row_idx <= row_idx + 1;
-                        pixel_count <= pixel_count + 1;
                     end if;
-                 else
+                else
                     col_idx <= col_idx + 1;
-                    pixel_count <= pixel_count + 1;
-                 end if;
-             else
+                end if;
+ 
+            else
                 dct_start <= '0';
             end if;
         end if;
-     end process;
+    end process;
      
     U_DCT : entity work.dct_transform
         port map(
@@ -107,48 +142,93 @@ begin
             dct_out => dct_out_matrix
         );
      
-     process(clk)
-        variable u  : integer range 0 to 7;
-        variable v  : integer range 0 to 7;
-     begin
+--     process(clk)
+--        variable u  : integer range 0 to 7;
+--        variable v  : integer range 0 to 7;
+--     begin
+--        if rising_edge(clk) then
+--            if reset = '1' then
+--                coeff_counter  <= 0;
+--                coeff_valid    <= '0';
+--                block_done     <= '0';
+--                output_u       <= 0;
+--                output_v       <= 0;
+--                dct_coeff      <= (others => '0');
+                
+--            elsif dct_done = '1' then
+--                u := coeff_counter / 8;
+--                v := coeff_counter mod 8;
+                
+--                output_u    <= u;
+--                output_v    <= v;
+--                dct_coeff   <= std_logic_vector(dct_out_matrix(u, v));
+                
+--                coeff_valid <= '1';
+                
+--                if coeff_counter = 63 then
+--                    coeff_counter <= 0;
+--                    block_done    <= '1';
+--                else 
+--                    coeff_counter <= coeff_counter + 1;
+--                    block_done    <= '0';
+--                end if;
+                
+----                elsif dct_done = '1' then
+----                    output_u    <= coeff_counter / 8;
+----                    output_v    <= coeff_counter mod 8;
+----                    dct_coeff   <= std_logic_vector(dct_out_matrix(output_u, output_v));
+----                    coeff_valid <= '1';
+--             else
+--                coeff_valid <= '0';
+--                block_done  <= '0';
+--             end if;
+--         end if;
+--     end process;
+    process(clk)
+        variable u : integer range 0 to 7;
+        variable v : integer range 0 to 7;
+    begin
         if rising_edge(clk) then
             if reset = '1' then
-                coeff_counter  <= 0;
-                coeff_valid    <= '0';
-                block_done     <= '0';
-                output_u       <= 0;
-                output_v       <= 0;
-                dct_coeff      <= (others => '0');
-                
+                coeff_counter <= 0;
+                coeff_valid   <= '0';
+                block_done    <= '0';
+                outputting    <= '0';
+                output_u      <= 0;
+                output_v      <= 0;
+                dct_coeff     <= (others => '0');
+ 
             elsif dct_done = '1' then
+                -- Start streaming coefficients
+                outputting    <= '1';
+                coeff_counter <= 0;
+                coeff_valid   <= '0';
+                block_done    <= '0';
+ 
+            elsif outputting = '1' then
                 u := coeff_counter / 8;
                 v := coeff_counter mod 8;
-                
+ 
                 output_u    <= u;
                 output_v    <= v;
                 dct_coeff   <= std_logic_vector(dct_out_matrix(u, v));
-                
                 coeff_valid <= '1';
-                
+ 
                 if coeff_counter = 63 then
                     coeff_counter <= 0;
+                    outputting    <= '0';
                     block_done    <= '1';
-                else 
+                else
                     coeff_counter <= coeff_counter + 1;
                     block_done    <= '0';
                 end if;
-                
---                elsif dct_done = '1' then
---                    output_u    <= coeff_counter / 8;
---                    output_v    <= coeff_counter mod 8;
---                    dct_coeff   <= std_logic_vector(dct_out_matrix(output_u, output_v));
---                    coeff_valid <= '1';
-             else
+ 
+            else
                 coeff_valid <= '0';
                 block_done  <= '0';
-             end if;
-         end if;
-     end process;
+            end if;
+        end if;
+    end process;
      
      coeff_u <= std_logic_vector(to_unsigned(output_u, 3));
      coeff_v <= std_logic_vector(to_unsigned(output_v, 3));

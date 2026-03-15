@@ -127,13 +127,7 @@ architecture rtl of top_module_jpeg_compression_tb is
         reset <= '1';
         wait for 20ns;
        
-        reset <= '0';
-        wait for 20ns;
-       
-        start <= '1';
-        wait for 20ns;
-        start <= '0';
-       
+        reset <= '0';     
         wait;
     end process reset_proc;
    
@@ -175,34 +169,42 @@ architecture rtl of top_module_jpeg_compression_tb is
         
         wait until reset = '0';
         wait until rising_edge(clk);
+        wait until rising_edge(clk);
+        wait until rising_edge(clk);
         
         i_valid     <= '1';
         wait until rising_edge(clk);
+        wait until rising_edge(clk);
+        wait until rising_edge(clk);
+        wait until rising_edge(clk);
+        wait until rising_edge(clk);
         
-        for i in 0 to 3 loop
+        outer: loop
             for j in 0 to PIXELS-1 loop
                 R       <= r_var(j);
                 G       <= g_var(j);
                 B       <= b_var(j);
                 p_valid <= '1';
                 wait until rising_edge(clk);
+                exit outer when done = '1';
             end loop;
-        end loop;
+        end loop outer;
         
-        p_valid     <= '1';
-        while done /= '1' loop
-            for j in 0 to PIXELS-1 loop
-                R       <= r_var(j);
-                G       <= g_var(j);
-                B       <= b_var(j);
-                p_valid <= '1';
-                wait until rising_edge(clk);
-                exit when done = '1';
-            end loop;
-        end loop;
+--        p_valid     <= '1';
+--        while done /= '1' loop
+--            for j in 0 to PIXELS-1 loop
+--                R       <= r_var(j);
+--                G       <= g_var(j);
+--                B       <= b_var(j);
+--                p_valid <= '1';
+--                wait until rising_edge(clk);
+--                exit when done = '1';
+--            end loop;
+--        end loop;
         
         p_valid <= '0';
         i_valid <= '0';
+        wait until rising_edge(clk);
         
         for i in 0 to 63 loop
             write(L, to_integer(signed(zigzag_out(i))));

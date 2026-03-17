@@ -91,23 +91,21 @@ begin
                 quant_out <= (others => '0');
                 out_valid <= '0';
                 u_out     <= (others => '0');
-                u_out     <= (others => '0');
+                v_out     <= (others => '0');
             
             elsif in_valid = '1' then
-                u_out   <= u_dct;
-                v_out   <= v_dct;
                 dct_val := to_integer(signed(dct_in));
                 q_val   := quant_matrix(to_integer(unsigned(u_dct)), to_integer(unsigned(v_dct)));
                 
                 quantized := round_div(dct_val, q_val);
                 
                 quant_out <= std_logic_vector(to_signed(quantized, 16));
+                u_out     <= u_dct;
+                v_out     <= v_dct;
                 out_valid <= '1';
                 
             else
                 out_valid <= '0';
-                u_out     <= (others => '0');
-                v_out     <= (others => '0');
             end if;
         end if;
      end process;

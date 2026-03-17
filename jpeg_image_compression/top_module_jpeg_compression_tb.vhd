@@ -89,39 +89,6 @@ architecture rtl of top_module_jpeg_compression_tb is
         zigzag_out => zigzag_out
     );
    
---    read_files_proc : process
---        variable L : line;
---        variable value_int : integer;
---    begin
---        for i in 0 to PIXELS-1 loop
---            if endfile(red_file) then
---                exit;
---            end if;
---            readline(red_file, L);
---            read(L, value_int);
---            red_data(i) <= std_logic_vector(to_unsigned(value_int, 8));
---        end loop;
---        for i in 0 to PIXELS-1 loop
---            if endfile(green_file) then
---                exit;
---            end if;
---            readline(green_file, L);
---            read(L, value_int);
---            green_data(i) <= std_logic_vector(to_unsigned(value_int, 8));
---        end loop;
---        for i in 0 to PIXELS-1 loop
---            if endfile(blue_file) then
---                exit;
---            end if;
---            readline(blue_file, L);
---            read(L, value_int);
---            blue_data(i) <= std_logic_vector(to_unsigned(value_int, 8));
---        end loop;
---        report "Image data successfully loaded.";
---        data_loaded  <= '1';
---        wait;
---    end process read_files_proc;
-   
     reset_proc: process
     begin
         reset <= '1';
@@ -190,17 +157,17 @@ architecture rtl of top_module_jpeg_compression_tb is
             end loop;
         end loop outer;
         
---        p_valid     <= '1';
---        while done /= '1' loop
---            for j in 0 to PIXELS-1 loop
---                R       <= r_var(j);
---                G       <= g_var(j);
---                B       <= b_var(j);
---                p_valid <= '1';
---                wait until rising_edge(clk);
---                exit when done = '1';
---            end loop;
---        end loop;
+        p_valid     <= '1';
+        while done /= '1' loop
+            for j in 0 to PIXELS-1 loop
+                R       <= r_var(j);
+                G       <= g_var(j);
+                B       <= b_var(j);
+                p_valid <= '1';
+                wait until rising_edge(clk);
+                exit when done = '1';
+            end loop;
+        end loop;
         
         p_valid <= '0';
         i_valid <= '0';
@@ -213,44 +180,5 @@ architecture rtl of top_module_jpeg_compression_tb is
         
         report "JPEG Block Completed";
         wait;
---        wait until data_loaded = '1';
---        wait until rising_edge(clk);
-           
---            for k in 1 to 5 loop
---                p_valid <= '0';
---                wait until rising_edge(clk);
---            end loop;
-           
---            i_valid <= '1';
---            wait until rising_edge(clk);
---            wait until rising_edge(clk);
-           
---            for i in 0 to 3 loop
-----                p_valid <= '1';
---                for j in 0 to PIXELS-1 loop
---                        R <= red_data(j);
---                        G <= green_data(j);
---                        B <= blue_data(j);
---                        p_valid <= '1';
---                    wait until rising_edge(clk);
---                end loop;
-               
-----                for j in 1 to PIXELS loop
-----                    p_valid <= '0';
-----                    wait until rising_edge(clk);
-----                end loop;
---            end loop;
-            
---        p_valid <= '0';
---        wait until done = '1';
---        i_valid <= '0';
-       
-----        wait until done = '1';
-----        report "JPEG Block Completed";
-       
---        for i in 0 to 63 loop
---            write(L, to_integer(signed(zigzag_out(i))));
---            writeline(zigzag_file, L);
---        end loop;
     end process stim_process;
 end rtl;

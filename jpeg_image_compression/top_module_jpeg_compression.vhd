@@ -72,6 +72,8 @@ architecture rtl of top_module_jpeg_compression is
     signal coeff_v      : std_logic_vector(2 downto 0); 
     signal coeff_valid  : std_logic; 
     -- signal zigzag_valid: std_logic; 
+    signal quant_u      : std_logic_vector(2 downto 0);
+    signal quant_v      : std_logic_vector(2 downto 0);
     signal quant_valid  : std_logic; 
     signal quant_out    : std_logic_vector(15 downto 0); 
     -- signal quant_coeff : std_logic_vector(15 downto 0); 
@@ -91,6 +93,8 @@ architecture rtl of top_module_jpeg_compression is
         v_dct       : in std_logic_vector(2 downto 0); 
         in_valid    : in std_logic; 
         
+        u_out       : out std_logic_vector(2 downto 0);
+        v_out       : out std_logic_vector(2 downto 0);
         out_valid   : out std_logic; 
         quant_out   : out std_logic_vector(15 downto 0) 
     ); 
@@ -177,7 +181,8 @@ begin
       dct_coeff    => dct_coeff,
       coeff_u      => coeff_u,
       coeff_v      => coeff_v,
-      coeff_valid  => coeff_valid
+      coeff_valid  => coeff_valid,
+      block_done   => open
     );
     
     U_QUANT : quantization
@@ -188,6 +193,8 @@ begin
       u_dct      => coeff_u,
       v_dct      => coeff_v,
       in_valid   => coeff_valid,
+      u_out      => quant_u,
+      v_out      => quant_v,
       out_valid  => quant_valid,
       quant_out  => quant_out
     );
@@ -197,8 +204,8 @@ begin
       clk         => clk,
       reset       => reset,
       quant_in    => quant_out,
-      u_in        => coeff_u,
-      v_in        => coeff_v,
+      u_in        => quant_u,
+      v_in        => quant_v,
       in_valid    => quant_valid,
       block_out   => block_out,
       block_valid => block_ready

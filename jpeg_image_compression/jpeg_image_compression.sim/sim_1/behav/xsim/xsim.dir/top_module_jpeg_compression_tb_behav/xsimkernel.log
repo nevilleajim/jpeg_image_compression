@@ -1,4 +1,4 @@
-Running: xsim.dir/top_module_jpeg_compression_tb_behav/xsimk.exe -simmode gui -wdb top_module_jpeg_compression_tb_behav.wdb -simrunnum 0 -socket 55974
+Running: xsim.dir/top_module_jpeg_compression_tb_behav/xsimk.exe -simmode gui -wdb top_module_jpeg_compression_tb_behav.wdb -simrunnum 0 -socket 56052
 Design successfully loaded
-Design Loading Memory Usage: 7848 KB (Peak: 7848 KB)
-Design Loading CPU Usage: 0 ms
+Design Loading Memory Usage: 8148 KB (Peak: 8148 KB)
+Design Loading CPU Usage: 15 ms

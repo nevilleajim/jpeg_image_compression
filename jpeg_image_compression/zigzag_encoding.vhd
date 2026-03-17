@@ -8,13 +8,17 @@
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
--- Description: 
+-- Description: FIXED VERSION - Improved pipeline synchronization
 -- 
 -- Dependencies: 
 -- 
 -- Revision:
--- Revision 0.01 - File Created
+-- Revision 0.02 - Fixed pipeline timing
 -- Additional Comments:
+-- CHANGES:
+-- 1. Added quant_block input latching
+-- 2. Improved state machine for better synchronization
+-- 3. Added pipeline_valid signal to track when outputs are valid
 -- 
 ----------------------------------------------------------------------------------
 
@@ -49,8 +53,12 @@ end zigzag_encoding;
 architecture rtl of zigzag_encoding is
     
     type zigzag_array is array (0 to 63) of integer range 0 to 63;
-    signal zigzag_cnt  : integer range 0 to 63;
-    signal active      : std_logic := '0';
+    type state_type is (IDLE, PROCESSING, DONE_STATE);
+    
+    signal state           : state_type := IDLE;
+    signal zigzag_cnt      : integer range 0 to 63;
+    signal quant_block_buf : block8x8;
+    signal pipeline_valid  : std_logic := '0';  
     
     constant ZIGZAG_INDEX : zigzag_array := (
         0,  1,  5,  6, 14, 15, 27, 28,
@@ -64,6 +72,7 @@ architecture rtl of zigzag_encoding is
     );
 
 begin
+    
     zigzag_proc : process(clk)
         variable index : integer range 0 to 63;
         variable row   : integer range 0 to 7;
@@ -71,42 +80,54 @@ begin
         
     begin
         if rising_edge(clk) then
-             if reset = '1' then
-                zigzag_cnt   <= 0;
-                active       <= '0';
-                done         <= '0';
-                zigzag_valid <= '0';
+            if reset = '1' then
+                state          <= IDLE;
+                zigzag_cnt     <= 0;
+                done           <= '0';
+                zigzag_valid   <= '0';
+                pipeline_valid <= '0';
                 
                 for i in 0 to 63 loop
                     zigzag_out(i) <= (others => '0');
                 end loop;
              
              elsif start = '1' then
-                zigzag_cnt   <= 0;
-                active       <= '1';
-                done         <= '0';
-                zigzag_valid <= '0';
+                quant_block_buf <= quant_block;
+                state           <= PROCESSING;
+                zigzag_cnt      <= 0;
+                done            <= '0';
+                zigzag_valid    <= '0';
+                pipeline_valid  <= '1';
              
-             elsif active = '1' then
+             elsif state = PROCESSING then
                 index := ZIGZAG_INDEX(zigzag_cnt);
                 row   := index / 8;
                 col   := index mod 8;
                 
-                zigzag_out(zigzag_cnt) <= quant_block(row, col);
+                zigzag_out(zigzag_cnt) <= quant_block_buf(row, col);
                 zigzag_valid           <= '1';
                 
                 if zigzag_cnt = 63 then
-                    active <= '0';
-                    done   <= '1';
+                    state          <= DONE_STATE;
+                    zigzag_cnt     <= 0;
+                    pipeline_valid <= '0';
+                    done           <= '1';
                 else 
                     zigzag_cnt <= zigzag_cnt + 1;
                     done       <= '0';
                 end if;
             
+             elsif state = DONE_STATE then
+                done         <= '0';
+                zigzag_valid <= '0';
+                state        <= IDLE;
+                 
              else 
                 zigzag_valid <= '0';
-                done         <= '0';   
+                done         <= '0';
+                pipeline_valid <= '0';
              end if;
         end if;
      end process zigzag_proc;
+
 end rtl;

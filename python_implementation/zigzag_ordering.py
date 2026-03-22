@@ -9,7 +9,7 @@ ZIGZAG_INDEX = [
    35, 36, 48, 49, 57, 58, 62, 63
 ]
 
-def zizag_ordering(block):
+def zigzag_ordering(block):
     """
     Block: 8x8 list of lists
     returns: list of 64 values in zigzag order

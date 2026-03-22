@@ -1,4 +1,0 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform_streaming.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'dct_transform_streaming'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_module_jpeg_compression.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'top_module_jpeg_compression'

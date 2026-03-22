@@ -51,7 +51,6 @@ architecture rtl of top_module_jpeg_compression_tb is
     constant PIXELS     : integer := Width * Height;
     
     type pixel_array is array (0 to PIXELS-1) of std_logic_vector(7 downto 0);
---    signal red_data, green_data, blue_data : pixel_array;
     
     component top_module_jpeg_compression
     port (
@@ -73,6 +72,7 @@ architecture rtl of top_module_jpeg_compression_tb is
         zigzag_out : out block64
     );
     end component;
+    
     begin
     U_TOPMODULE: top_module_jpeg_compression
     port map (

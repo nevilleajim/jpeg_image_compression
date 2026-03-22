@@ -4,6 +4,7 @@ import pandas as pd
 from PIL import Image
 from discrete_cosine_transform import dctTransform
 from quantization import quantize_dct
+from zigzag_ordering import zigzag_ordering
 
 
 img = Image.open("test.jpg").convert("RGB")
@@ -71,3 +72,17 @@ normalized_quantized_result = (normalized_quantized_result / normalized_quantize
 
 quantized_image = Image.fromarray(normalized_quantized_result)
 quantized_image.save("quantized_image.jpeg")
+
+num_blocks_h = h // block_size
+num_blocks_w = w // block_size
+zigzag_results = []
+
+for i in range(0, h, block_size):
+    for j in range(0, w, block_size):
+        block = quantized_result[i:i+8, j:j+8]
+        if block.shape == (8, 8):
+            zigzag_vector = zigzag_ordering(block.tolist())
+            zigzag_results.append(zigzag_vector)
+
+print(f"\nTotal zigzag blocks: {len(zigzag_results)}")
+print(f"First block zigzag vector:\n{zigzag_results[0]}")

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1772622891">
-  <File Type="BITSTR-BMM" Name="top_module_jpeg_compression_bd.bmm"/>
   <File Type="PA-TCL" Name="top_module_jpeg_compression.tcl"/>
-  <File Type="OPT-DCP" Name="top_module_jpeg_compression_opt.dcp"/>
+  <File Type="BITSTR-BMM" Name="top_module_jpeg_compression_bd.bmm"/>
   <File Type="REPORTS-TCL" Name="top_module_jpeg_compression_reports.tcl"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="top_module_jpeg_compression_incremental_reuse_pre_placed.rpt"/>
+  <File Type="OPT-DCP" Name="top_module_jpeg_compression_opt.dcp"/>
   <File Type="OPT-DRC" Name="top_module_jpeg_compression_drc_opted.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="top_module_jpeg_compression_incremental_reuse_pre_placed.rpt"/>
   <File Type="OPT-HWDEF" Name="top_module_jpeg_compression.hwdef"/>
   <File Type="PWROPT-DCP" Name="top_module_jpeg_compression_pwropt.dcp"/>
   <File Type="PLACE-DCP" Name="top_module_jpeg_compression_placed.dcp"/>

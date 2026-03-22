@@ -68,9 +68,9 @@ begin
             end if;
             
             if p_valid = '1' then
-                r_integer := to_integer(unsigned(R));
-                g_integer := to_integer(unsigned(G));
-                b_integer := to_integer(unsigned(B));
+                r_integer  := to_integer(unsigned(R));
+                g_integer  := to_integer(unsigned(G));
+                b_integer  := to_integer(unsigned(B));
                  
                 y_integer  := 16 + (((65 * r_integer) +  (129 * g_integer) + (25 * b_integer) ) / 256);
                 cb_integer := 128 - (((37 * r_integer) +  (74 * g_integer) - (112 * b_integer) ) / 256);

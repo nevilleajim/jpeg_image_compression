@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="999995441fs"></ZoomStartTime>
-      <ZoomEndTime time="1000007132fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <ZoomStartTime time="87312200000fs"></ZoomStartTime>
+      <ZoomEndTime time="87429800001fs"></ZoomEndTime>
+      <Cursor1Time time="87380500000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="200"></NameColumnWidth>
-      <ValueColumnWidth column_width="162"></ValueColumnWidth>
+      <ValueColumnWidth column_width="157"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="21" />
+   <WVObjectSize size="20" />
    <wvobject fp_name="/top_module_jpeg_compression_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -53,14 +53,6 @@
       <obj_property name="ElementShortName">start</obj_property>
       <obj_property name="ObjectShortName">start</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_module_jpeg_compression_tb/quant_block" type="array">
-      <obj_property name="ElementShortName">quant_block[0:7,0:7][15:0]</obj_property>
-      <obj_property name="ObjectShortName">quant_block[0:7,0:7][15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_module_jpeg_compression_tb/block_in" type="array">
-      <obj_property name="ElementShortName">block_in[0:63][15:0]</obj_property>
-      <obj_property name="ObjectShortName">block_in[0:63][15:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/top_module_jpeg_compression_tb/zigzag_valid" type="logic">
       <obj_property name="ElementShortName">zigzag_valid</obj_property>
       <obj_property name="ObjectShortName">zigzag_valid</obj_property>
@@ -77,18 +69,6 @@
       <obj_property name="ElementShortName">data_loaded</obj_property>
       <obj_property name="ObjectShortName">data_loaded</obj_property>
    </wvobject>
-   <wvobject fp_name="/top_module_jpeg_compression_tb/red_data" type="array">
-      <obj_property name="ElementShortName">red_data[0:63][7:0]</obj_property>
-      <obj_property name="ObjectShortName">red_data[0:63][7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_module_jpeg_compression_tb/green_data" type="array">
-      <obj_property name="ElementShortName">green_data[0:63][7:0]</obj_property>
-      <obj_property name="ObjectShortName">green_data[0:63][7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/top_module_jpeg_compression_tb/blue_data" type="array">
-      <obj_property name="ElementShortName">blue_data[0:63][7:0]</obj_property>
-      <obj_property name="ObjectShortName">blue_data[0:63][7:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/top_module_jpeg_compression_tb/Width" type="other">
       <obj_property name="ElementShortName">Width</obj_property>
       <obj_property name="ObjectShortName">Width</obj_property>
@@ -104,6 +84,21 @@
    <wvobject fp_name="/top_module_jpeg_compression_tb/U_TOPMODULE/U_DCT/U_DCT/dct_out" type="array">
       <obj_property name="ElementShortName">dct_out[0:7,0:7][15:0]</obj_property>
       <obj_property name="ObjectShortName">dct_out[0:7,0:7][15:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_module_jpeg_compression_tb/U_TOPMODULE/U_QUANT/quant_out" type="array">
+      <obj_property name="ElementShortName">quant_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">quant_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_module_jpeg_compression_tb/U_TOPMODULE/U_DCT/dct_start" type="logic">
+      <obj_property name="ElementShortName">dct_start</obj_property>
+      <obj_property name="ObjectShortName">dct_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_module_jpeg_compression_tb/U_TOPMODULE/U_DCT/dct_done" type="logic">
+      <obj_property name="ElementShortName">dct_done</obj_property>
+      <obj_property name="ObjectShortName">dct_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_module_jpeg_compression_tb/U_TOPMODULE/U_DCT/U_DCT/busy" type="logic">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
    </wvobject>
 </wave_config>

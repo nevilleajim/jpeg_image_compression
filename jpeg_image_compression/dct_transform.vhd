@@ -86,7 +86,7 @@ begin
                 case stage is
                     when 0 =>
                         temp := (to_integer(data_in(x,y)) * to_integer(COS_X(i,x))) ;
-                        acc  := acc + ((temp / 32678) * to_integer(COS_Y(j,y))) / 32678;
+                        acc  := acc + ((temp / 32678) * to_integer(COS_Y(j,y))) / 32768;
     
                         if y < 7 then
                             y <= y + 1;
@@ -102,7 +102,7 @@ begin
                         end if;
     
                     when 1 =>
-                        acc1  <= acc * norm(i_var) / 32678;
+                        acc1  <= acc * norm(i_var) / 32768;
                         stage <= 2;
 
                     when 2 =>

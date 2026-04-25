@@ -37,4 +37,4 @@ def inverse_zigzag_ordering(vector):
         col = index % 8
         block[row][col] = vector[k]
         
-    return block
+    return block 

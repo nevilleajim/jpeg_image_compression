@@ -9,79 +9,43 @@
     ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 
 source top_module_jpeg_compression.tcl -notrace
-Command: synth_design -top top_module_jpeg_compression -part xc7z020clg484-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
-INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 12328 
+INFO: Helper process launched with PID 21580 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 362.309 ; gain = 101.121
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 362.227 ; gain = 101.230
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'top_module_jpeg_compression' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_module_jpeg_compression.vhd:64]
+INFO: [Synth 8-638] synthesizing module 'top_module_jpeg_compression' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_module_jpeg_compression.vhd:60]
 	Parameter DATA_WIDTH bound to: 8 - type: integer 
 	Parameter LINE_LENGTH bound to: 256 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'rgb_to_ycbcr_converter' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:49]
-WARNING: [Synth 8-6014] Unused sequential element r_integer_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:71]
-WARNING: [Synth 8-6014] Unused sequential element g_integer_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:72]
-WARNING: [Synth 8-6014] Unused sequential element b_integer_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:73]
-WARNING: [Synth 8-6014] Unused sequential element y_integer_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:75]
-WARNING: [Synth 8-6014] Unused sequential element cb_integer_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:76]
-WARNING: [Synth 8-6014] Unused sequential element cr_integer_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:77]
-INFO: [Synth 8-256] done synthesizing module 'rgb_to_ycbcr_converter' (1#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/rgb_to_ycbcr_converter.vhd:49]
 INFO: [Synth 8-638] synthesizing module 'memory_controller' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/memory_controller.vhd:53]
 	Parameter DATA_WIDTH bound to: 8 - type: integer 
 	Parameter LINE_LENGTH bound to: 256 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'simple_dual_ram' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/simple_dual_ram.vhd:51]
 	Parameter DATA_WIDTH bound to: 8 - type: integer 
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'simple_dual_ram' (2#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/simple_dual_ram.vhd:51]
-INFO: [Synth 8-226] default block is never used [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/memory_controller.vhd:106]
-INFO: [Synth 8-256] done synthesizing module 'memory_controller' (3#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/memory_controller.vhd:53]
 INFO: [Synth 8-638] synthesizing module 'dct_transform_streaming' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform_streaming.vhd:50]
-INFO: [Synth 8-638] synthesizing module 'dct_transform' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:17]
-INFO: [Synth 8-226] default block is never used [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:75]
-WARNING: [Synth 8-6014] Unused sequential element acc_final_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:119]
-INFO: [Synth 8-256] done synthesizing module 'dct_transform' (4#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:17]
-WARNING: [Synth 8-6014] Unused sequential element pixel_count_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform_streaming.vhd:72]
-INFO: [Synth 8-256] done synthesizing module 'dct_transform_streaming' (5#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform_streaming.vhd:50]
-INFO: [Synth 8-3491] module 'quantization' declared at 'C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quantization.vhd:36' bound to instance 'U_QUANT' of component 'quantization' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_module_jpeg_compression.vhd:183]
-INFO: [Synth 8-638] synthesizing module 'quantization' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quantization.vhd:51]
-WARNING: [Synth 8-6014] Unused sequential element dct_val_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quantization.vhd:95]
-WARNING: [Synth 8-6014] Unused sequential element q_val_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quantization.vhd:96]
-WARNING: [Synth 8-6014] Unused sequential element quantized_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quantization.vhd:98]
-INFO: [Synth 8-256] done synthesizing module 'quantization' (6#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quantization.vhd:51]
-INFO: [Synth 8-3491] module 'quant_block_buf' declared at 'C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quant_block_buf.vhd:35' bound to instance 'U_QBUF' of component 'quant_block_buf' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_module_jpeg_compression.vhd:195]
-INFO: [Synth 8-638] synthesizing module 'quant_block_buf' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quant_block_buf.vhd:51]
-WARNING: [Synth 8-6014] Unused sequential element u_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quant_block_buf.vhd:66]
-WARNING: [Synth 8-6014] Unused sequential element v_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quant_block_buf.vhd:67]
-INFO: [Synth 8-256] done synthesizing module 'quant_block_buf' (7#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quant_block_buf.vhd:51]
-INFO: [Synth 8-3491] module 'zigzag_encoding' declared at 'C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/zigzag_encoding.vhd:35' bound to instance 'U_ZIGZAG' of component 'zigzag_encoding' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_module_jpeg_compression.vhd:207]
-INFO: [Synth 8-638] synthesizing module 'zigzag_encoding' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/zigzag_encoding.vhd:49]
-WARNING: [Synth 8-6014] Unused sequential element index_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/zigzag_encoding.vhd:87]
-WARNING: [Synth 8-6014] Unused sequential element row_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/zigzag_encoding.vhd:88]
-WARNING: [Synth 8-6014] Unused sequential element col_reg was removed.  [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/zigzag_encoding.vhd:89]
-INFO: [Synth 8-256] done synthesizing module 'zigzag_encoding' (8#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/zigzag_encoding.vhd:49]
-INFO: [Synth 8-256] done synthesizing module 'top_module_jpeg_compression' (9#1) [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/top_module_jpeg_compression.vhd:64]
-WARNING: [Synth 8-3331] design top_module_jpeg_compression has unconnected port start
+INFO: [Synth 8-226] default block is never used [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:86]
+INFO: [Synth 8-638] synthesizing module 'quantization' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quantization.vhd:53]
+INFO: [Synth 8-638] synthesizing module 'zigzag_encoding' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/zigzag_encoding.vhd:53]
+INFO: [Synth 8-638] synthesizing module 'huffman_coding' [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/huffman_coding.vhd:49]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 445.219 ; gain = 184.031
+Finished Synthesize : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1108.262 ; gain = 847.266
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 445.219 ; gain = 184.031
+Finished Constraint Validation : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1108.262 ; gain = 847.266
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
-Loading part: xc7z020clg484-1
----------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 445.219 ; gain = 184.031
----------------------------------------------------------------------------------
-INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'memory_controller'
 INFO: [Synth 8-5544] ROM "line_addr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "read_active" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "read_row" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "pixel_valid_i" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "dct_out_reg[0,0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "dct_out_reg[0,1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dct_out_reg[0,2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dct_out_reg[0,3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dct_out_reg[0,4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
@@ -90,32 +54,30 @@ INFO: [Synth 8-5544] ROM "dct_out_reg[0,6]" won't be mapped to Block RAM because
 INFO: [Synth 8-5544] ROM "dct_out_reg[0,7]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "norm" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "norm" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:84]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:89]
+INFO: [Synth 8-802] inferred FSM for state register 'stage_reg' in module 'dct_transform'
 INFO: [Synth 8-5544] ROM "row_idx" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,6]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "dct_start" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "block_done" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5545] ROM "round_div" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "round_div1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "block_valid" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5545] ROM "quant_buf_reg[0,0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "quant_buf_reg[0,1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "quant_buf_reg[0,2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "quant_buf_reg[0,3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "quant_buf_reg[0,4]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "quant_buf_reg[0,5]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "quant_buf_reg[0,6]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "quant_buf_reg[0,7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5546] ROM "zigzag_cnt" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "active" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "zigzag_cnt" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[0]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[1]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[2]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[3]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[4]" won't be mapped to RAM because it is too sparse
@@ -124,18 +86,7 @@ INFO: [Synth 8-5546] ROM "zigzag_out_reg[6]" won't be mapped to RAM because it i
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[7]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[8]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[9]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[10]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[11]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[12]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[13]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[14]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[15]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[16]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[17]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[18]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[19]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[20]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[21]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[22]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[23]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[24]" won't be mapped to RAM because it is too sparse
@@ -145,7 +96,6 @@ INFO: [Synth 8-5546] ROM "zigzag_out_reg[27]" won't be mapped to RAM because it 
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[28]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[29]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[30]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[31]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[32]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[33]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[34]" won't be mapped to RAM because it is too sparse
@@ -155,7 +105,6 @@ INFO: [Synth 8-5546] ROM "zigzag_out_reg[37]" won't be mapped to RAM because it 
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[38]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[39]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[40]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[41]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[42]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[43]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[44]" won't be mapped to RAM because it is too sparse
@@ -165,7 +114,6 @@ INFO: [Synth 8-5546] ROM "zigzag_out_reg[47]" won't be mapped to RAM because it 
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[48]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[49]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[50]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[51]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[52]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[53]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[54]" won't be mapped to RAM because it is too sparse
@@ -175,73 +123,120 @@ INFO: [Synth 8-5546] ROM "zigzag_out_reg[57]" won't be mapped to RAM because it 
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[58]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[59]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[60]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "zigzag_out_reg[61]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "zigzag_out_reg[62]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "run" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-                reset_st |                               10 |                               00
-              wait_frame |                               11 |                               01
-             wait_pixels |                               01 |                               10
-                   write |                               00 |                               11
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'memory_controller'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'stage_reg' using encoding 'one-hot' in module 'dct_transform'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 585.062 ; gain = 323.875
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:26 ; elapsed = 00:01:28 . Memory (MB): peak = 1602.176 ; gain = 1341.180
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+----------------------------------+------------+----------+
+|      |RTL Partition                     |Replication |Instances |
++------+----------------------------------+------------+----------+
++------+----------------------------------+------------+----------+
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 9     
-	   3 Input     32 Bit       Adders := 1     
-	   3 Input     31 Bit       Adders := 1     
-	   2 Input     31 Bit       Adders := 7     
-	   2 Input     16 Bit       Adders := 3     
-	   2 Input     10 Bit       Adders := 1     
-	   2 Input      8 Bit       Adders := 1     
+	   3 Input      9 Bit       Adders := 63    
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 4     
 	   2 Input      6 Bit       Adders := 3     
-	   2 Input      3 Bit       Adders := 9     
+	   2 Input      4 Bit       Adders := 60    
+	   2 Input      3 Bit       Adders := 73    
 +---Registers : 
 	               32 Bit    Registers := 3     
-	               16 Bit    Registers := 194   
-	               10 Bit    Registers := 64    
-	                8 Bit    Registers := 12    
+	                8 Bit    Registers := 78    
 	                6 Bit    Registers := 3     
-	                3 Bit    Registers := 13    
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 13    
-+---Multipliers : 
-	                16x32  Multipliers := 2     
 +---RAMs : 
 	               2K Bit         RAMs := 8     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 5     
-	   4 Input     32 Bit        Muxes := 1     
-	   2 Input     31 Bit        Muxes := 7     
-	   2 Input     17 Bit        Muxes := 1     
-	   8 Input     16 Bit        Muxes := 16    
-	   2 Input     16 Bit        Muxes := 7     
-	   2 Input     15 Bit        Muxes := 2     
-	   2 Input      8 Bit        Muxes := 8     
+	   2 Input     32 Bit        Muxes := 2439  
+	   2 Input     27 Bit        Muxes := 64    
+	   2 Input     23 Bit        Muxes := 64    
+	   2 Input      8 Bit        Muxes := 200   
 	   8 Input      8 Bit        Muxes := 8     
-	   2 Input      6 Bit        Muxes := 2     
-	   2 Input      3 Bit        Muxes := 11    
-	   4 Input      3 Bit        Muxes := 2     
-	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
-	   5 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 298   
-	   4 Input      1 Bit        Muxes := 75    
-	   3 Input      1 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 64    
+	   2 Input      6 Bit        Muxes := 3     
+	   2 Input      4 Bit        Muxes := 64    
+	   2 Input      3 Bit        Muxes := 72    
+	   2 Input      2 Bit        Muxes := 962   
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -249,131 +244,116 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
+Module huffman_coding 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input      9 Bit       Adders := 63    
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 60    
+	   2 Input      3 Bit       Adders := 65    
++---Registers : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2432  
+	   2 Input     27 Bit        Muxes := 64    
+	   2 Input     23 Bit        Muxes := 64    
+	   2 Input      7 Bit        Muxes := 64    
+	   2 Input      4 Bit        Muxes := 64    
+	   2 Input      3 Bit        Muxes := 64    
+	   2 Input      2 Bit        Muxes := 960   
 Module rgb_to_ycbcr_converter 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 5     
-	   3 Input     31 Bit       Adders := 1     
-	   2 Input     31 Bit       Adders := 2     
 +---Registers : 
 	                8 Bit    Registers := 3     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 2     
-	   2 Input     31 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 8     
-	   2 Input      1 Bit        Muxes := 1     
+Detailed RTL Component Info : 
++---Registers : 
++---RAMs : 
+Module simple_dual_ram__2 
+Detailed RTL Component Info : 
++---Registers : 
++---RAMs : 
+Module simple_dual_ram__3 
+Detailed RTL Component Info : 
++---Registers : 
++---RAMs : 
+Module simple_dual_ram__4 
+Detailed RTL Component Info : 
++---Registers : 
++---RAMs : 
+Module simple_dual_ram__5 
+Detailed RTL Component Info : 
++---Registers : 
++---RAMs : 
+Module simple_dual_ram__6 
+Detailed RTL Component Info : 
++---Registers : 
++---RAMs : 
+Module simple_dual_ram__7 
+Detailed RTL Component Info : 
++---Registers : 
++---RAMs : 
 Module simple_dual_ram 
 Detailed RTL Component Info : 
 +---Registers : 
-	                8 Bit    Registers := 1     
 +---RAMs : 
-	               2K Bit         RAMs := 1     
 Module memory_controller 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      8 Bit       Adders := 1     
-	   2 Input      3 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 3     
+	   2 Input      3 Bit       Adders := 2     
 +---Registers : 
-	                8 Bit    Registers := 1     
-	                3 Bit    Registers := 3     
-	                1 Bit    Registers := 3     
+	                8 Bit    Registers := 3     
+	                3 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input      3 Bit        Muxes := 3     
-	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 2     
 Module dct_transform 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 2     
-	   2 Input     31 Bit       Adders := 2     
-	   2 Input     16 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 5     
 	   2 Input      3 Bit       Adders := 4     
 +---Registers : 
-	               32 Bit    Registers := 3     
-	               16 Bit    Registers := 64    
+	               32 Bit    Registers := 2     
 	                3 Bit    Registers := 6     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 2     
-+---Multipliers : 
-	                16x32  Multipliers := 2     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 2     
-	   4 Input     32 Bit        Muxes := 1     
-	   2 Input     31 Bit        Muxes := 2     
-	   8 Input     16 Bit        Muxes := 16    
-	   2 Input     16 Bit        Muxes := 1     
-	   2 Input     15 Bit        Muxes := 2     
-	   2 Input      3 Bit        Muxes := 6     
-	   4 Input      3 Bit        Muxes := 2     
-	   5 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 81    
-	   4 Input      1 Bit        Muxes := 74    
+	   2 Input     32 Bit        Muxes := 4     
+	   2 Input      3 Bit        Muxes := 4     
 Module dct_transform_streaming 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     10 Bit       Adders := 1     
-	   2 Input      6 Bit       Adders := 1     
 	   2 Input      3 Bit       Adders := 2     
 +---Registers : 
-	               16 Bit    Registers := 1     
-	               10 Bit    Registers := 64    
-	                6 Bit    Registers := 1     
+	                8 Bit    Registers := 64    
 	                3 Bit    Registers := 4     
-	                1 Bit    Registers := 3     
 +---Muxes : 
-	   2 Input      6 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 73    
-	   3 Input      1 Bit        Muxes := 1     
+Module zigzag_encoding 
+Detailed RTL Component Info : 
++---Adders : 
++---Registers : 
++---Muxes : 
+Module quant_block_buf 
+Detailed RTL Component Info : 
++---Adders : 
++---Registers : 
++---Muxes : 
 Module quantization 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 2     
-	   3 Input     32 Bit       Adders := 1     
-	   2 Input     31 Bit       Adders := 3     
-	   2 Input     16 Bit       Adders := 2     
 +---Registers : 
-	               16 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
+	                3 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 1     
-	   2 Input     31 Bit        Muxes := 3     
-	   2 Input     17 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 6     
 	   8 Input      8 Bit        Muxes := 8     
-	   2 Input      1 Bit        Muxes := 1     
-Module quant_block_buf 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      6 Bit       Adders := 1     
-+---Registers : 
-	               16 Bit    Registers := 64    
-	                6 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input      6 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 73    
-Module zigzag_encoding 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      6 Bit       Adders := 1     
-+---Registers : 
-	               16 Bit    Registers := 64    
-	                6 Bit    Registers := 1     
-	                1 Bit    Registers := 3     
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 67    
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Part Resource Summary
 ---------------------------------------------------------------------------------
-Part Resources:
-DSPs: 220 (col length:60)
-BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
@@ -381,266 +361,35 @@ No constraint files found.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-5544] ROM "line_addr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "line_addr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "norm" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "norm" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:104]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:111]
-DSP Report: Generating DSP acc5, operation Mode is: A*B.
-DSP Report: operator acc5 is absorbed into DSP acc5.
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "result" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+DSP Report: Generating DSP acc8, operation Mode is: A*B.
+DSP Report: operator acc8 is absorbed into DSP acc8.
 DSP Report: Generating DSP acc4, operation Mode is: A*B.
 DSP Report: operator acc4 is absorbed into DSP acc4.
 DSP Report: operator acc4 is absorbed into DSP acc4.
-DSP Report: Generating DSP acc4, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: operator acc4 is absorbed into DSP acc4.
 DSP Report: operator acc4 is absorbed into DSP acc4.
-DSP Report: Generating DSP acc10, operation Mode is: A*B.
-DSP Report: operator acc10 is absorbed into DSP acc10.
-DSP Report: operator acc10 is absorbed into DSP acc10.
-DSP Report: Generating DSP acc10, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator acc10 is absorbed into DSP acc10.
-DSP Report: operator acc10 is absorbed into DSP acc10.
-DSP Report: Generating DSP acc20, operation Mode is: A*B.
-DSP Report: operator acc20 is absorbed into DSP acc20.
-DSP Report: operator acc20 is absorbed into DSP acc20.
-DSP Report: Generating DSP acc20, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator acc20 is absorbed into DSP acc20.
-DSP Report: operator acc20 is absorbed into DSP acc20.
-INFO: [Synth 8-5546] ROM "block_done" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5544] ROM "row_idx" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "dct_input_buf_reg[0,6]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5545] ROM "round_div1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "round_div" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5546] ROM "block_valid" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5545] ROM "quant_buf_reg[0,0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "quant_buf_reg[0,1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "quant_buf_reg[0,2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "quant_buf_reg[0,3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "quant_buf_reg[0,4]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "quant_buf_reg[0,5]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "quant_buf_reg[0,6]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "quant_buf_reg[0,7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-WARNING: [Synth 8-3331] design top_module_jpeg_compression has unconnected port start
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[0].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[1].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[2].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[3].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[4].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[5].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[6].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM RAMS[7].U_RAM/ram_reg to conserve power
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,7][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,7][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,7][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,7][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,7][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,7][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,7][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,7][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,7][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,6][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,6][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,6][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,6][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,6][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,6][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,6][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,6][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,6][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,5][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,5][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,5][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,5][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,5][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,5][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,5][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,5][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,5][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,4][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,4][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,4][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,4][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,4][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,4][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,4][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,4][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,4][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,3][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,3][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,3][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,3][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,3][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,3][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,3][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,3][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,3][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,2][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,2][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,2][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,2][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,2][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,2][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,2][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,2][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,2][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,1][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,1][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,1][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,1][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,1][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,1][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,1][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,1][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,1][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[7,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[7,0][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[6,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[6,0][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[5,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[5,0][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[4,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[4,0][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[3,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[3,0][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[2,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[2,0][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[1,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[1,0][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/dct_input_buf_reg[0,0][8]' (FDE) to 'U_DCT/dct_input_buf_reg[0,0][9]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[7,7][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[7,7][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[6,7][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[6,7][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[5,7][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[5,7][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[4,7][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[4,7][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[3,7][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[3,7][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[2,7][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[2,7][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[1,7][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[1,7][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[0,7][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[0,7][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[7,6][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[7,6][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[6,6][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[6,6][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[5,6][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[5,6][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[4,6][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[4,6][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[3,6][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[3,6][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[2,6][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[2,6][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[1,6][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[1,6][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[0,6][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[0,6][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[7,5][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[7,5][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[6,5][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[6,5][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[5,5][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[5,5][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[4,5][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[4,5][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[3,5][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[3,5][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[2,5][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[2,5][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[1,5][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[1,5][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[0,5][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[0,5][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[7,4][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[7,4][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[6,4][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[6,4][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[5,4][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[5,4][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[4,4][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[4,4][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[3,4][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[3,4][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[2,4][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[2,4][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[1,4][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[1,4][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[0,4][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[0,4][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[7,3][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[7,3][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[6,3][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[6,3][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[5,3][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[5,3][2]'
-INFO: [Synth 8-3886] merging instance 'U_DCT/U_DCT/dct_out_reg[4,3][1]' (FDE) to 'U_DCT/U_DCT/dct_out_reg[4,3][2]'
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[47]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[46]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[45]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[44]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[43]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[42]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[41]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[40]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[39]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[38]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[37]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[36]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[35]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[34]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[33]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[32]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[31]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[30]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[29]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[28]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[27]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[26]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[25]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[24]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[23]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[22]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[21]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[20]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[19]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[18]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[17]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[47]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[46]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[45]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[44]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[43]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[42]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[41]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[40]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[39]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[38]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[37]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[36]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[35]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[34]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[33]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[32]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[31]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[30]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[29]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[28]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[27]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[26]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[25]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[24]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[23]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[22]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[21]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[20]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[19]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[18]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[17]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[16]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc1_reg[15]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[47]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[46]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[45]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[44]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[43]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[42]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[41]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[40]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[39]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[38]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[37]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[36]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[35]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[34]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[33]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[32]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[31]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[30]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[29]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[28]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[27]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[26]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[25]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[24]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[23]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[22]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[21]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[20]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[19]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[18]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[17]) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[47]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[46]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[45]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[44]__0) is unused and will be removed from module dct_transform_streaming.
-WARNING: [Synth 8-3332] Sequential element (U_DCT/acc2_reg[43]__0) is unused and will be removed from module dct_transform_streaming.
-INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+DSP Report: Generating DSP acc23, operation Mode is: A2*B.
+DSP Report: register A is absorbed into DSP acc23.
+DSP Report: operator acc23 is absorbed into DSP acc23.
+DSP Report: operator acc23 is absorbed into DSP acc23.
+DSP Report: register B is absorbed into DSP acc23.
+DSP Report: operator acc23 is absorbed into DSP acc23.
+DSP Report: operator acc23 is absorbed into DSP acc23.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:24 . Memory (MB): peak = 708.859 ; gain = 447.672
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:10:48 ; elapsed = 00:10:52 . Memory (MB): peak = 1651.059 ; gain = 1390.062
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -650,7 +399,6 @@ ROM:
 +----------------+-----------------+---------------+----------------+
 |Module Name     | RTL Object      | Depth x Width | Implemented As | 
 +----------------+-----------------+---------------+----------------+
-|zigzag_encoding | ZIGZAG_INDEX[0] | 64x6          | LUT            | 
 |zigzag_encoding | ZIGZAG_INDEX[0] | 64x6          | LUT            | 
 +----------------+-----------------+---------------+----------------+
 
@@ -672,46 +420,40 @@ Block RAM: Preliminary Mapping  Report (see note below)
 Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
 
 DSP: Preliminary Mapping  Report (see note below)
-+--------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name   | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+--------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|dct_transform | A*B            | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|dct_transform | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|dct_transform | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|dct_transform | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|dct_transform | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|dct_transform | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|dct_transform | (PCIN>>17)+A*B | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+--------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++--------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name   | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|dct_transform | A*B             | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|dct_transform | A*B             | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|dct_transform | (PCIN>>17)+A*B  | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|dct_transform | A2*B            | 18     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|dct_transform | (PCIN>>17)+A2*B | 15     | 15     | -      | -      | 15     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|dct_transform | A2*B            | 18     | 17     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|dct_transform | (PCIN>>17)+A2*B | 15     | 15     | -      | -      | 15     | 1    | 0    | -    | -    | -     | 0    | 0    | 
++--------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6837] The timing for the instance U_MEM/i_0/RAMS[0].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance U_MEM/i_1/RAMS[1].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance U_MEM/i_2/RAMS[2].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance U_MEM/i_3/RAMS[3].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance U_MEM/i_4/RAMS[4].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance U_MEM/i_5/RAMS[5].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance U_MEM/i_6/RAMS[6].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance U_MEM/i_7/RAMS[7].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:55]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:55]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:56]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:56]
+INFO: [Synth 8-6837] The timing for the instance i_0/i_3/U_MEM/RAMS[0].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_0/i_5/U_MEM/RAMS[2].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_0/i_6/U_MEM/RAMS[3].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_0/i_7/U_MEM/RAMS[4].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_0/i_8/U_MEM/RAMS[5].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_0/i_9/U_MEM/RAMS[6].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+----------------------------------+------------+----------+
+|      |RTL Partition                     |Replication |Instances |
++------+----------------------------------+------------+----------+
++------+----------------------------------+------------+----------+
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:24 . Memory (MB): peak = 708.859 ; gain = 447.672
+Finished Timing Optimization : Time (s): cpu = 00:11:11 ; elapsed = 00:11:15 . Memory (MB): peak = 1651.059 ; gain = 1390.062
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -719,16 +461,7 @@ Start ROM, RAM, DSP and Shift Register Reporting
 
 Block RAM: Final Mapping  Report
 +-----------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name      | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
 +-----------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|simple_dual_ram: | ram_reg    | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|simple_dual_ram: | ram_reg    | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|simple_dual_ram: | ram_reg    | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|simple_dual_ram: | ram_reg    | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|simple_dual_ram: | ram_reg    | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|simple_dual_ram: | ram_reg    | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|simple_dual_ram: | ram_reg    | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
-|simple_dual_ram: | ram_reg    | 256 x 8(READ_FIRST)    | W |   | 256 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
 +-----------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 ---------------------------------------------------------------------------------
@@ -736,35 +469,29 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+----------------------------------+------------+----------+
+|      |RTL Partition                     |Replication |Instances |
++------+----------------------------------+------------+----------+
++------+----------------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:56]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:57]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:55]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:55]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd:56]
-INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[0].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[1].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[2].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[3].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[4].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[5].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[6].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[7].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_0/U_MEM/RAMS[0].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_0/U_MEM/RAMS[2].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_0/U_MEM/RAMS[3].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_0/U_MEM/RAMS[4].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_0/U_MEM/RAMS[5].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_0/U_MEM/RAMS[6].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_0/U_MEM/RAMS[7].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:26 . Memory (MB): peak = 708.859 ; gain = 447.672
+Finished Technology Mapping : Time (s): cpu = 00:11:58 ; elapsed = 00:12:04 . Memory (MB): peak = 1651.059 ; gain = 1390.062
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+----------------------------------+------------+----------+
+|      |RTL Partition                     |Replication |Instances |
++------+----------------------------------+------------+----------+
++------+----------------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -777,24 +504,30 @@ Finished Flattening Before IO Insertion
 ---------------------------------------------------------------------------------
 Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[0].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[2].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[3].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[4].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[5].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[6].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance U_MEM/RAMS[7].U_RAM/ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:27 . Memory (MB): peak = 708.859 ; gain = 447.672
+Finished IO Insertion : Time (s): cpu = 00:12:25 ; elapsed = 00:12:30 . Memory (MB): peak = 1651.059 ; gain = 1390.062
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
 +------+------------------+-------+---------+-------+------------------+
 |      |Item              |Errors |Warnings |Status |Description       |
 +------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 708.859 ; gain = 447.672
+Finished Renaming Generated Instances : Time (s): cpu = 00:12:27 ; elapsed = 00:12:33 . Memory (MB): peak = 1651.059 ; gain = 1390.062
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -806,25 +539,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:28 . Memory (MB): peak = 708.859 ; gain = 447.672
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:12:33 ; elapsed = 00:12:39 . Memory (MB): peak = 1651.059 ; gain = 1390.062
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:28 . Memory (MB): peak = 708.859 ; gain = 447.672
+Finished Renaming Generated Ports : Time (s): cpu = 00:12:34 ; elapsed = 00:12:40 . Memory (MB): peak = 1651.059 ; gain = 1390.062
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:28 . Memory (MB): peak = 708.859 ; gain = 447.672
+Finished Handling Custom Attributes : Time (s): cpu = 00:12:57 ; elapsed = 00:13:02 . Memory (MB): peak = 1651.059 ; gain = 1390.062
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:28 . Memory (MB): peak = 708.859 ; gain = 447.672
+Finished Renaming Generated Nets : Time (s): cpu = 00:12:57 ; elapsed = 00:13:03 . Memory (MB): peak = 1651.059 ; gain = 1390.062
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -841,67 +574,40 @@ Report Cell Usage:
 |      |Cell     |Count |
 +------+---------+------+
 |1     |BUFG     |     1|
-|2     |CARRY4   |   475|
+|2     |CARRY4   | 21012|
 |3     |DSP48E1  |     7|
-|4     |LUT1     |   140|
-|5     |LUT2     |  1028|
-|6     |LUT3     |   507|
-|7     |LUT4     |   136|
-|8     |LUT5     |   329|
-|9     |LUT6     |   639|
-|10    |MUXF7    |   223|
-|11    |MUXF8    |   108|
+|4     |LUT1     | 15154|
+|5     |LUT2     | 32439|
+|6     |LUT3     | 32478|
+|7     |LUT4     | 11648|
+|8     |LUT5     | 59376|
+|9     |LUT6     | 50850|
+|10    |MUXF7    |   590|
+|11    |MUXF8    |   160|
 |12    |RAMB18E1 |     8|
-|13    |FDCE     |    92|
-|14    |FDRE     |  2834|
-|15    |FDSE     |     1|
+|13    |FDCE     |     8|
+|14    |FDRE     |  5063|
+|15    |FDSE     |     2|
 |16    |IBUF     |    28|
-|17    |OBUF     |  1026|
+|17    |OBUF     |   258|
 +------+---------+------+
 
 Report Instance Areas: 
-+------+--------------------+------------------------+------+
-|      |Instance            |Module                  |Cells |
-+------+--------------------+------------------------+------+
-|1     |top                 |                        |  7582|
-|2     |  U_CONV            |rgb_to_ycbcr_converter  |    61|
-|3     |  U_DCT             |dct_transform_streaming |  1749|
-|4     |    U_DCT           |dct_transform           |   942|
-|5     |  U_MEM             |memory_controller       |    92|
-|6     |    \RAMS[0].U_RAM  |simple_dual_ram         |     2|
-|7     |    \RAMS[1].U_RAM  |simple_dual_ram_0       |     2|
-|8     |    \RAMS[2].U_RAM  |simple_dual_ram_1       |     2|
-|9     |    \RAMS[3].U_RAM  |simple_dual_ram_2       |    18|
-|10    |    \RAMS[4].U_RAM  |simple_dual_ram_3       |     2|
-|11    |    \RAMS[5].U_RAM  |simple_dual_ram_4       |     2|
-|12    |    \RAMS[6].U_RAM  |simple_dual_ram_5       |     2|
-|13    |    \RAMS[7].U_RAM  |simple_dual_ram_6       |    10|
-|14    |  U_QBUF            |quant_block_buf         |  1504|
-|15    |  U_QUANT           |quantization            |  1920|
-|16    |  U_ZIGZAG          |zigzag_encoding         |  1120|
-+------+--------------------+------------------------+------+
++------+--------------------+------------------------+-------+
+|      |Instance            |Module                  |Cells  |
++------+--------------------+------------------------+-------+
+|3     |  U_DCT             |dct_transform_streaming |   3383|
+|4     |    U_DCT           |dct_transform           |   2683|
+|5     |  U_HUFFMANCODING   |huffman_coding          |   4762|
++------+--------------------+------------------------+-------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:28 . Memory (MB): peak = 708.859 ; gain = 447.672
+Finished Writing Synthesis Report : Time (s): cpu = 00:12:57 ; elapsed = 00:13:03 . Memory (MB): peak = 1651.059 ; gain = 1390.062
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 146 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:28 . Memory (MB): peak = 708.859 ; gain = 447.672
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:28 . Memory (MB): peak = 708.859 ; gain = 447.672
-INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 821 Unisim elements for replacement
+Synthesis finished with 0 errors, 0 critical warnings and 33 warnings.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 721.055 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-INFO: [Common 17-83] Releasing license: Synthesis
-293 Infos, 118 Warnings, 0 Critical Warnings and 0 Errors encountered.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.091 . Memory (MB): peak = 1651.059 ; gain = 0.000
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 721.055 ; gain = 467.418
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 721.055 ; gain = 0.000
-WARNING: [Constraints 18-5210] No constraints selected for write.
-Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_image_compression.runs/synth_1/top_module_jpeg_compression.dcp' has been generated.
+synth_design: Time (s): cpu = 00:13:38 ; elapsed = 00:13:45 . Memory (MB): peak = 1651.059 ; gain = 1397.453
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.091 . Memory (MB): peak = 1651.059 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:30 ; elapsed = 00:00:24 . Memory (MB): peak = 1651.059 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file top_module_jpeg_compression_utilization_synth.rpt -pb top_module_jpeg_compression_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Mar  4 12:11:09 2026...

@@ -50,14 +50,10 @@ entity top_module_jpeg_compression is
         i_valid      : in std_logic; 
         
         start        : in std_logic; 
---        quant_block  : in block8x8;  
-        -- stream_out : out std_logic_vector(255 downto 0); 
-        -- valid : out std_logic; 
-        -- finish : out std_logic; 
-        
-        zigzag_valid : out std_logic; 
-        done         : out std_logic; 
-        zigzag_out   : out block64 
+        stream_out   : out std_logic_vector(255 downto 0); 
+        valid        : out std_logic; 
+        finish       : out std_logic
+          
     );
 end top_module_jpeg_compression;
 
@@ -71,18 +67,18 @@ architecture rtl of top_module_jpeg_compression is
     signal coeff_u      : std_logic_vector(2 downto 0); 
     signal coeff_v      : std_logic_vector(2 downto 0); 
     signal coeff_valid  : std_logic; 
-    -- signal zigzag_valid: std_logic; 
+     signal zigzag_valid: std_logic; 
     signal quant_u      : std_logic_vector(2 downto 0);
     signal quant_v      : std_logic_vector(2 downto 0);
     signal quant_valid  : std_logic; 
     signal quant_out    : std_logic_vector(15 downto 0); 
     -- signal quant_coeff : std_logic_vector(15 downto 0); 
     signal block_out    : block8x8; 
-    -- signal done : std_logic; 
+    signal done         : std_logic; 
     signal block_ready  : std_logic; 
-    -- signal zigzag_out : block64;
---    signal block_in     : block64;
-    
+    signal zigzag_out   : block64;
+    signal block_in     : block64;
+        
     component quantization 
     Port ( 
         clk         : in std_logic; 
@@ -129,17 +125,17 @@ architecture rtl of top_module_jpeg_compression is
     );
   end component;
   
-  -- component huffman_coding 
-  -- Port (
-    -- clk : in std_logic; 
-    -- reset : in std_logic; 
-    -- start : in std_logic; 
-    -- block_in : in block64; 
-    -- stream_out : out std_logic_vector(255 downto 0); 
-    -- valid : out std_logic; 
-    -- finish : out std_logic 
-  -- ); 
-  -- end component;
+   component huffman_coding 
+   Port (
+     clk        : in std_logic; 
+     reset      : in std_logic; 
+     start      : in std_logic; 
+     block_in   : in block64; 
+     stream_out : out std_logic_vector(255 downto 0); 
+     valid      : out std_logic; 
+     finish     : out std_logic 
+   ); 
+   end component;
 
 begin
 
@@ -222,15 +218,15 @@ begin
       zigzag_out   => zigzag_out
     );
     
-    -- U_HUFFMANCODING: huffman_coding 
-    -- port map( 
-        -- clk => clk, 
-        -- reset => reset, 
-        -- start => done, 
-        -- block_in => zigzag_out, 
-        -- stream_out => stream_out, 
-        -- valid => valid, 
-        -- finish => finish 
-    -- );
+     U_HUFFMANCODING: huffman_coding 
+     port map( 
+         clk        => clk, 
+         reset      => reset, 
+         start      => done, 
+         block_in   => zigzag_out, 
+         stream_out => stream_out, 
+         valid      => valid, 
+         finish     => finish 
+     );
 
 end rtl;

@@ -4,6 +4,7 @@ vhdl xil_defaultlib  \
 "../../../../dct_transform.vhd" \
 "../../../../dct_transform_streaming.vhd" \
 "../../../../jpeg_type_pkg.vhd" \
+"../../../../huffman_coding.vhd" \
 "../../../../simple_dual_ram.vhd" \
 "../../../../memory_controller.vhd" \
 "../../../../quant_block_buf.vhd" \

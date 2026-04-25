@@ -48,204 +48,132 @@ end huffman_coding;
 
 architecture rtl of huffman_coding is
 
-    type state_type is (IDLE, DC_STAGE, AC_STAGE, DONE);
-    signal state        : state_type := IDLE;
-
-    signal dc_diff      : integer := 0;
-    signal dc_cat       : integer := 0;
-    signal dc_bits      : std_logic_vector(15 downto 0) := (others => '0');
---    signal ac_run       : integer;
---    signal ac_cat       : integer;
-    signal ac_bits      : std_logic_vector(15 downto 0) := (others => '0');
-    signal last_dc_reg  : integer := 0;
---    signal finish_buf   : std_logic := '0';
-
-    signal bit_pos          : integer range 0 to 255 := 255;
-    signal run              : integer range 0 to 15 := 0;
-    signal i                : integer := 1;
-
-begin
+    signal last_dc_reg : integer := 0;   
     
-    process(clk)
+begin
+    main_proc : process(clk)
+        variable acc        : std_logic_vector(255 downto 0);
+        variable bit_pos    : integer range 0 to 255;
+        variable v_dc_diff  : integer;
+        variable v_dc_cat   : integer;
+        variable v_dc_hlen  : integer;
+        variable v_dc_vbits : std_logic_vector(14 downto 0);
+        
         variable coeff      : integer;
         variable cat        : integer;
+        variable run        : integer range 0 to 15;
         variable hlen       : integer;
-    begin
+        variable vbits      : std_logic_vector(14 downto 0);
+        
+        procedure write_bits(
+            src     : in std_logic_vector;
+            nbits   : in integer;
+            pos     : inout integer
+        ) is 
+            variable ext        : unsigned(255 downto 0);
+            variable shift      : integer;
+        begin
+            if nbits = 0 then
+                return;
+            end if;
+            ext     := resize(unsigned(src), 256);
+            shift   := pos - nbits + 1;
+            
+            if shift >= 0 then
+                ext := shift_left(ext, shift);
+            else
+                ext := shift_right(ext, -shift);
+            end if;
+            acc     := acc or std_logic_vector(ext);
+            pos     := pos - nbits;
+        end procedure;
+        
+        begin
         if rising_edge(clk) then
             if reset = '1' then
-                state       <= IDLE;
                 stream_out  <= (others => '0');
                 valid       <= '0';
                 finish      <= '0';
                 last_dc_reg <= 0;
-                bit_pos     <= 255;
-                run         <= 0;
-                i           <= 1;
-            else
-                case state is
-                when IDLE => 
-                    valid   <= '0';
-                    finish  <= '0';
-                    
-                    if start = '1' then
-                        dc_diff     <= to_integer(signed(block_in(0))) - last_dc_reg;
-                        dc_cat      <= category(dc_diff);
-                        dc_bits     <= DC_LUMA_HUFF(dc_cat).code & value_bits(dc_diff, dc_cat);
-                        bit_pos     <= 255;
-                        state       <= DC_STAGE;
-                    end if;
-                    
-               when DC_STAGE => 
-                    hlen := dc_bits'length;
-                    if bit_pos - hlen + 1 >= 0 then
-                        stream_out(bit_pos downto bit_pos-hlen+1) <= dc_bits;
-                        bit_pos <= bit_pos - hlen;
-                        valid   <= '1';
-                        state   <= AC_STAGE;
-                        i       <= 1;
-                        run     <= 0;
-                        
+ 
+            elsif start = '1' then
+ 
+                -- --------------------------------------------------------
+                -- Initialise accumulator and bit pointer
+                -- --------------------------------------------------------
+                acc     := (others => '0');
+                bit_pos := 255;
+ 
+                -- --------------------------------------------------------
+                -- DC coefficient (differential coding)
+                -- --------------------------------------------------------
+                v_dc_diff  := to_integer(block_in(0)) - last_dc_reg;
+                v_dc_cat   := category(v_dc_diff);
+                v_dc_hlen  := DC_LUMA_HUFF(v_dc_cat).length;
+                v_dc_vbits := value_bits(v_dc_diff, v_dc_cat);
+ 
+                -- Write Huffman code for DC category
+                write_bits(DC_LUMA_HUFF(v_dc_cat).code, v_dc_hlen, bit_pos);
+ 
+                -- Write magnitude bits (value_bits already MSB-aligned in
+                -- its 15-bit result, but write_bits treats them as a plain
+                -- integer so we strip the alignment and use cat as the count)
+                write_bits(v_dc_vbits, v_dc_cat, bit_pos);
+ 
+                -- --------------------------------------------------------
+                -- AC coefficients (run-length / category coding)
+                -- --------------------------------------------------------
+                run := 0;
+ 
+                for idx in 1 to 63 loop
+                    coeff := to_integer(block_in(idx));
+ 
+                    if coeff = 0 then
+                        run := run + 1;
+ 
+                        -- ZRL: 16 consecutive zeros ? emit ZRL code, reset run
+                        if run = 16 then
+                            hlen := AC_LUMA_HUFF(15, 0).length;
+                            write_bits(AC_LUMA_HUFF(15, 0).code, hlen, bit_pos);
+                            run := 0;
+                        end if;
+ 
                     else
-                        state   <= DONE;
+                        cat   := category(coeff);
+                        vbits := value_bits(coeff, cat);
+ 
+                        -- Huffman code for (run, cat)
+                        hlen := AC_LUMA_HUFF(run, cat).length;
+                        write_bits(AC_LUMA_HUFF(run, cat).code, hlen, bit_pos);
+ 
+                        -- Magnitude bits
+                        write_bits(vbits, cat, bit_pos);
+ 
+                        run := 0;
                     end if;
-              
-              when AC_STAGE  => 
-                    if i <= 63 then
-                        coeff := to_integer(signed(block_in(i)));
-                        if coeff = 0 then
-                            run <= run + 1;
-                            if run = 16 then
-                                hlen := AC_LUMA_HUFF(15, 0).length;
-                                if bit_pos - hlen + 1 >= 0 then
-                                    stream_out(bit_pos downto bit_pos-hlen+1) <= AC_LUMA_HUFF(15, 0).code(15 downto 16-hlen);
-                                    bit_pos <= bit_pos - hlen;
-                                end if;
-                                run <= 0;
-                            end if;
-                        else
-                            cat := category(coeff);
-                            hlen := AC_LUMA_HUFF(run, cat).length;
-                            if bit_pos - hlen + 1 >= 0 then
-                              stream_out(bit_pos downto bit_pos-hlen+1) <= AC_LUMA_HUFF(run,cat).code(15 downto 16-hlen);
-                              bit_pos <= bit_pos - hlen;
-                            end if;
-            
-                            if bit_pos - cat + 1 >= 0 then
-                              stream_out(bit_pos downto bit_pos-cat+1) <= value_bits(coeff,cat);
-                              bit_pos <= bit_pos - cat;
-                            end if;
-            
-                            run <= 0;
-                          end if;
-                          i <= i + 1;
-                        else
-                          if run > 0 then
-                            hlen := AC_LUMA_HUFF(0,0).length;
-                            if bit_pos - hlen + 1 >= 0 then
-                              stream_out(bit_pos downto bit_pos-hlen+1) <= AC_LUMA_HUFF(0,0).code(15 downto 16-hlen);
-                              bit_pos <= bit_pos - hlen;
-                            end if;
-                          end if;
-                          valid       <= '1';
-                          finish      <= '1';
-                          last_dc_reg <= to_integer(signed(block_in(0)));
-                          state       <= DONE;
-                        end if;
-                    when DONE =>
-                        valid  <= '0';
-                        if start = '0' then
-                          state <= IDLE;
-                        end if;
-            
-                    end case;
-                  end if;
+                end loop;
+ 
+                -- EOB: if there are trailing zeros, emit End-Of-Block
+                if run > 0 then
+                    hlen := AC_LUMA_HUFF(0, 0).length;
+                    write_bits(AC_LUMA_HUFF(0, 0).code, hlen, bit_pos);
                 end if;
-    end process;
-
---    begin
---        if rising_edge(clk) then
---            if reset = '1' then
---                stream_out  <= (others => '0');
---                valid        <= '0';
---                finish   <= '0';
---            elsif start = '1' then
---                dc_diff  <= to_integer(signed(block_in(0))) - last_dc_reg;
---                dc_cat   <= category(dc_diff);
---                dc_bits  <= DC_LUMA_HUFF(dc_cat).code & value_bits(dc_diff, dc_cat);
---                stream_out(255 downto 255-dc_bits'length+1) <= dc_bits;
---                valid <= '1';
---            end if;
---        end if;
---    end process;
-    
---    ac_process : process(clk)
---        variable i          : integer range 1 to 63;
---        variable run        : integer range 0 to 15;
---        variable coeff      : integer;
---        variable cat        : integer;
---        variable hlen       : integer;
---        variable bit_pos    : integer range 0 to 255;
---    begin
---        if rising_edge(clk) then
---            if reset = '1' then
---                bit_pos      := 255;
---                valid        <= '0';
---                finish  <= '0';
-            
---            elsif start = '1' then
---                run     := 0;
---                bit_pos := 255;
-                
---                for i in 1 to 63 loop
---                    coeff := to_integer(block_in(i));
-                    
---                    if coeff = 0 then
---                        run := run + 1;
-                        
---                        if run = 16 then
---                            hlen := AC_LUMA_HUFF(15, 0).length;
---                            stream_out(bit_pos downto bit_pos-hlen+1) <= 
---                                AC_LUMA_HUFF(15,0).code(15 downto 16-hlen);
---                            bit_pos := bit_pos - hlen;
---                            run := 0;
---                        end if;
---                    else
---                        cat := category(coeff);
-                        
---                        hlen := AC_LUMA_HUFF(run, cat).length;
---                        stream_out(bit_pos downto bit_pos-hlen+1) <= 
---                            AC_LUMA_HUFF(run, cat).code(15 downto 16-hlen);
---                        bit_pos := bit_pos - hlen;
-                        
---                        stream_out(bit_pos downto bit_pos-cat+1) <= 
---                            value_bits(coeff, cat);
---                        bit_pos := bit_pos - cat;
-                        
---                        run := 0;
---                    end if;
---                end loop;
-                
---                if run > 0 then
---                    hlen := AC_LUMA_HUFF(0,0).length;
---                    stream_out(bit_pos downto bit_pos-hlen+1) <= AC_LUMA_HUFF(0,0).code(15 downto 16-hlen);
---                    bit_pos := bit_pos - hlen;
---                end if;
-                
---                valid    <= '1';
---                finish   <= '1';
---             end if;
---         end if;
---     end process;   
-     
---     process(clk)
---     begin
---        if rising_edge(clk) then
---            if reset = '1' then
---                last_dc_reg <= 0;
---            elsif finish = '1' then
---                last_dc_reg <= to_integer(block_in(0));
---            end if;
---        end if;
---     end process;                     
+ 
+                -- --------------------------------------------------------
+                -- Commit results
+                -- --------------------------------------------------------
+                last_dc_reg <= to_integer(block_in(0));
+                stream_out  <= acc;
+                valid       <= '1';
+                finish      <= '1';
+ 
+            else
+                -- De-assert strobes when start is not asserted
+                valid  <= '0';
+                finish <= '0';
+ 
+            end if;
+        end if;
+    end process main_proc;           
 
 end rtl;

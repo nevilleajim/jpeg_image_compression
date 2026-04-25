@@ -60,6 +60,8 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config  -id {Synth 8-3380}  -string {{ERROR: [Synth 8-3380] loop condition does not converge after 2000 iterations [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_type_pkg.vhd:318]}}  -suppress 
+set_msg_config  -string {{1}}  -suppress 
 
 start_step init_design
 set ACTIVE_STEP init_design

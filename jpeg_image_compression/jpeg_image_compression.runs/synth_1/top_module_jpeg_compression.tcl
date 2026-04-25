@@ -17,6 +17,8 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_msg_config  -id {Synth 8-3380}  -string {{ERROR: [Synth 8-3380] loop condition does not converge after 2000 iterations [C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_type_pkg.vhd:318]}}  -suppress 
+set_msg_config  -string {{1}}  -suppress 
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -34,6 +36,7 @@ read_vhdl -library xil_defaultlib {
   C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform.vhd
   C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/dct_transform_streaming.vhd
   C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/jpeg_type_pkg.vhd
+  C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/huffman_coding.vhd
   C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/simple_dual_ram.vhd
   C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/memory_controller.vhd
   C:/Users/hp/Documents/FGPA/mini_project/jpeg_image_compression/quant_block_buf.vhd

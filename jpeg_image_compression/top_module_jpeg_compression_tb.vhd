@@ -22,6 +22,7 @@ use STD.TEXTIO.ALL;
 use IEEE.STD_LOGIC_TEXTIO.ALL;
 use work.dct_package.ALL;
 use work.jpeg_type_pkg.ALL;
+
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
 --library UNISIM;
@@ -41,9 +42,9 @@ architecture rtl of top_module_jpeg_compression_tb is
 --    signal quant_block  : block8x8;
 --    signal block_in     : block64;
    
-    signal zigzag_valid : std_logic;
-    signal done         : std_logic;
-    signal zigzag_out   : block64;
+    signal stream_out   : std_logic_vector(255 downto 0); 
+    signal valid        : std_logic; 
+    signal finish       : std_logic;
     signal data_loaded  : std_logic := '0';
    
     constant Width      : integer := 8;
@@ -54,39 +55,37 @@ architecture rtl of top_module_jpeg_compression_tb is
     
     component top_module_jpeg_compression
     port (
-        clk : in std_logic;
-        reset : in std_logic;
+        clk          : in std_logic;
+        reset        : in std_logic;
        
-        R : in std_logic_vector(7 downto 0);
-        G : in std_logic_vector(7 downto 0);
-        B : in std_logic_vector(7 downto 0);
+        R            : in std_logic_vector(7 downto 0);
+        G            : in std_logic_vector(7 downto 0);
+        B            : in std_logic_vector(7 downto 0);
         
-        p_valid : in std_logic;
-        i_valid : in std_logic;
+        p_valid      : in std_logic;
+        i_valid      : in std_logic;
        
-        start : in std_logic;
--- quant_block : in block8x8;
--- block_in : in block64;
-        zigzag_valid : out std_logic;
-        done : out std_logic;
-        zigzag_out : out block64
+        start        : in std_logic;
+        stream_out   : out std_logic_vector(255 downto 0); 
+        valid        : out std_logic; 
+        finish       : out std_logic
     );
     end component;
     
     begin
     U_TOPMODULE: top_module_jpeg_compression
     port map (
-        clk => clk,
-        reset => reset,
-        R => R,
-        G => G,
-        B => B,
-        p_valid => p_valid,
-        i_valid => i_valid,
-        start => start,
-        zigzag_valid => zigzag_valid,
-        done => done,
-        zigzag_out => zigzag_out
+        clk         => clk,
+        reset       => reset,
+        R           => R,
+        G           => G,
+        B           => B,
+        p_valid     => p_valid,
+        i_valid     => i_valid,
+        start       => start,
+        stream_out  => stream_out,
+        valid       => valid,
+        finish      => finish
     );
    
     reset_proc: process
@@ -118,7 +117,7 @@ architecture rtl of top_module_jpeg_compression_tb is
     file red_file       : text open read_mode is "C:/Users/hp/Documents/FGPA/mini_project/python_implementation/red_channel.txt";
     file green_file     : text open read_mode is "C:/Users/hp/Documents/FGPA/mini_project/python_implementation/green_channel.txt";
     file blue_file      : text open read_mode is "C:/Users/hp/Documents/FGPA/mini_project/python_implementation/blue_channel.txt";
-    file zigzag_file    : text open write_mode is "C:/Users/hp/Documents/FGPA/mini_project/python_implementation/zigzag_output.txt";
+    file huff_file      : text open write_mode is "C:/Users/hp/Documents/FGPA/mini_project/python_implementation/huffman_output.txt";
    
     begin
         for i in 0 to PIXELS-1 loop
@@ -146,39 +145,64 @@ architecture rtl of top_module_jpeg_compression_tb is
         wait until rising_edge(clk);
         wait until rising_edge(clk);
         
-        outer: loop
-            for j in 0 to PIXELS-1 loop
-                R       <= r_var(j);
-                G       <= g_var(j);
-                B       <= b_var(j);
-                p_valid <= '1';
-                wait until rising_edge(clk);
-                exit outer when done = '1';
-            end loop;
-        end loop outer;
+--        p_valid <= '1';
         
-        p_valid     <= '1';
-        while done /= '1' loop
+        pixel_feed : loop
             for j in 0 to PIXELS-1 loop
                 R       <= r_var(j);
                 G       <= g_var(j);
                 B       <= b_var(j);
                 p_valid <= '1';
                 wait until rising_edge(clk);
-                exit when done = '1';
+                
+                if finish = '1' then
+                    exit pixel_feed;
+                end if;
             end loop;
-        end loop;
+        end loop pixel_feed;
         
         p_valid <= '0';
         i_valid <= '0';
+        start   <= '0';
         wait until rising_edge(clk);
         
-        for i in 0 to 63 loop
-            write(L, to_integer(signed(zigzag_out(i))));
-            writeline(zigzag_file, L);
+--        p_valid     <= '1';
+--        while done /= '1' loop
+--            for j in 0 to PIXELS-1 loop
+--                R       <= r_var(j);
+--                G       <= g_var(j);
+--                B       <= b_var(j);
+--                p_valid <= '1';
+--                wait until rising_edge(clk);
+--                exit when done = '1';
+--            end loop;
+--        end loop;
+        
+--        p_valid <= '0';
+--        i_valid <= '0';
+--        wait until rising_edge(clk);
+        
+--        for i in 0 to 63 loop
+--            write(L, to_integer(signed(zigzag_out(i))));
+--            writeline(zigzag_file, L);
+--        end loop;
+        write(L, string'("--Huffman stream_out (256 bits, MSB first) --"));
+        writeline(huff_file, L);
+        
+        for byte_idx in 31 downto 0 loop
+            write(L, to_integer(
+                unsigned(stream_out((byte_idx * 8) + 7 downto byte_idx * 8))
+            ));
+            writeline(huff_file, L);
         end loop;
         
-        report "JPEG Block Completed";
+        write(L, string'("--Raw binary --"));
+        writeline(huff_file, L);
+        write(L, stream_out);
+        writeline(huff_file, L);
+        
+        report "Huffman encoding complete. stream_out written to huffman_output.txt" severity note;
+        
         wait;
     end process stim_process;
 end rtl;
